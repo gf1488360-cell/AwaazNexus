@@ -375,4 +375,35 @@
         document.querySelectorAll("[data-home-tab]").forEach(btn => btn.addEventListener("click", (e) => { homeSubTab = e.target.dataset.homeTab; renderAll(); }));
         document.querySelectorAll("[data-market-tab]").forEach(btn => btn.addEventListener("click", (e) => { marketplaceSubTab = e.target.dataset.marketTab; renderAll(); }));
         document.querySelectorAll("[data-meetup-tab]").forEach(btn => btn.addEventListener("click", (e) => { meetupSubTab = e.target.dataset.meetupTab; renderAll(); }));
-        document.querySelectorAll("[data-quick-tab]").forEach(btn => btn.addEventListener("click", (e) => { quickSubTab = e.target.dataset.qui
+        document.querySelectorAll("[data-quick-tab]").forEach(btn => btn.addEventListener("click", (e) => { quickSubTab = e.target.dataset.quickTab; renderAll(); }));
+        document.getElementById("createTextPostBtn")?.addEventListener("click", () => {
+            let txt = prompt("Write your text update:");
+            if (txt) { textOnlyPosts.unshift({ id: Date.now(), circle: currentUser.circle, userName: currentUser.name, avatar: currentUser.avatar, text: txt, likes: 0, comments: 0, timestamp: "just now" }); renderAll(); }
+        });
+        document.querySelectorAll(".order-product").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                let name = btn.dataset.name;
+                let price = parseInt(btn.dataset.price);
+                let qty = prompt("Quantity:", "1");
+                if (qty && !isNaN(qty)) { orders.unshift({ id: Date.now(), productName: name, quantity: parseInt(qty), total: price * parseInt(qty), status: "pending", date: new Date().toISOString().slice(0,10) }); alert("Order placed!"); if (marketplaceSubTab === "products") renderAll(); }
+            });
+        });
+        document.getElementById("askQBtn")?.addEventListener("click", () => alert("Question posted (free)"));
+        document.querySelectorAll(".addFriend").forEach(btn => btn.addEventListener("click", () => alert("Friend request sent")));
+        document.getElementById("premiumBtn")?.addEventListener("click", () => alert("Upgrade to premium"));
+    }
+
+    document.querySelectorAll(".tab-item").forEach(tab => {
+        tab.addEventListener("click", () => {
+            activeMainTab = tab.dataset.tab;
+            document.querySelectorAll(".tab-item").forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+            renderAll();
+        });
+    });
+    document.querySelector(".tab-item[data-tab='home']").classList.add("active");
+    renderAll();
+</script>
+</body>
+</html>
+                                                                                                           

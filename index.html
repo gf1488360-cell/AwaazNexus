@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>AwaazNexus – Apki awaz hai kisi ka sahara</title>
-    <!-- Font Awesome 6 (free icons) -->
+    <title>AwaazNexus – Community, Circles, Quick Get</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f5f7fb;
+            background: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,21 +25,19 @@
             padding: 16px;
         }
 
-        /* Mobile frame */
         .phone {
             max-width: 400px;
             width: 100%;
-            height: 700px;
+            height: 720px;
             background: white;
             border-radius: 40px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
-        /* Status bar mock */
         .status-bar {
             padding: 12px 20px 4px;
             font-size: 14px;
@@ -50,23 +48,19 @@
             color: #1e293b;
         }
 
-        /* Main scrollable content */
         .main-content {
             flex: 1;
             overflow-y: auto;
-            padding: 16px 16px 8px 16px;
+            padding: 16px;
             scroll-behavior: smooth;
         }
 
-        /* Bottom tab bar */
         .bottom-tabs {
             display: flex;
             justify-content: space-around;
-            align-items: center;
             background: white;
-            border-top: 1px solid #e2e8f0;
-            padding: 10px 12px 14px;
-            box-shadow: 0 -2px 8px rgba(0,0,0,0.02);
+            border-top: 1px solid #e9eef3;
+            padding: 8px 12px 14px;
         }
 
         .tab-item {
@@ -74,12 +68,11 @@
             flex-direction: column;
             align-items: center;
             gap: 4px;
-            font-size: 12px;
-            color: #94a3b8;
+            font-size: 11px;
+            color: #8e9aaf;
             background: none;
             border: none;
             cursor: pointer;
-            transition: 0.2s;
             font-weight: 500;
         }
 
@@ -91,57 +84,60 @@
             color: #0f3b2c;
         }
 
-        /* Top tabs (secondary) */
         .top-tabs {
             display: flex;
-            gap: 16px;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
+            gap: 12px;
+            border-bottom: 1.5px solid #eef2f8;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
         }
+
         .top-tab-btn {
             background: none;
             border: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
-            color: #64748b;
-            padding: 4px 0;
+            color: #6c7a91;
+            padding: 6px 0;
             cursor: pointer;
             position: relative;
         }
+
         .top-tab-btn.active {
             color: #0f3b2c;
         }
+
         .top-tab-btn.active::after {
             content: '';
             position: absolute;
-            bottom: -9px;
+            bottom: -7px;
             left: 0;
             width: 100%;
-            height: 2px;
+            height: 2.5px;
             background: #0f3b2c;
             border-radius: 2px;
         }
 
-        /* Cards */
-        .post-card, .question-card, .chat-card, .friend-card {
+        .post-card, .event-card, .question-card, .circle-item-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            border: 1px solid #eef2f6;
+            border: 1px solid #edf2f7;
         }
-        .post-header, .question-header {
+
+        .post-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
+
         .avatar {
-            width: 42px;
-            height: 42px;
-            background: #e6f7f0;
+            width: 44px;
+            height: 44px;
+            background: #e3f5ec;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -149,107 +145,97 @@
             font-weight: bold;
             color: #0f3b2c;
         }
+
+        .post-img {
+            width: 100%;
+            border-radius: 20px;
+            margin: 10px 0;
+            max-height: 200px;
+            object-fit: cover;
+            background: #eef2f8;
+        }
+
         .user-name {
             font-weight: 700;
             font-size: 15px;
         }
+
         .circle-badge {
             font-size: 11px;
             color: #5b6e8c;
         }
-        .post-text {
-            font-size: 14px;
-            margin: 8px 0;
-            line-height: 1.4;
-        }
+
         .post-stats {
             display: flex;
-            gap: 20px;
-            margin-top: 8px;
+            gap: 18px;
+            margin-top: 10px;
             font-size: 13px;
             color: #5b6e8c;
-        }
-        .reply-btn, .like-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #5b6e8c;
-            font-size: 13px;
         }
 
         .input-row {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             margin-top: 10px;
         }
+
         .input-row input {
             flex: 1;
-            padding: 8px 12px;
-            border-radius: 30px;
+            padding: 10px 14px;
+            border-radius: 40px;
             border: 1px solid #e2e8f0;
             font-size: 13px;
         }
+
         button {
             background: #0f3b2c;
             color: white;
             border: none;
             border-radius: 40px;
-            padding: 6px 14px;
+            padding: 8px 16px;
             font-weight: 600;
             cursor: pointer;
         }
-        .ask-card {
-            background: #f8fafc;
-            border-radius: 28px;
-            padding: 12px;
-        }
-        .search-circle {
-            background: #f1f5f9;
-            border-radius: 30px;
-            padding: 10px 14px;
-            margin-bottom: 16px;
-            display: flex;
-            gap: 8px;
-        }
-        .search-circle input {
-            flex: 1;
-            border: none;
+
+        .join-btn {
             background: transparent;
-            outline: none;
+            border: 1px solid #0f3b2c;
+            color: #0f3b2c;
+            padding: 6px 16px;
         }
+
+        .search-circle {
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 10px 16px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            border: 1px solid #e2edf7;
+        }
+
         .circle-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            padding: 6px 0;
         }
-        .join-btn {
-            background: none;
-            border: 1px solid #0f3b2c;
-            color: #0f3b2c;
-            padding: 4px 12px;
-        }
-        h4 {
-            margin: 8px 0;
-        }
-        .notification-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #eef2f6;
-            font-size: 14px;
-        }
-        .profile-section {
-            text-align: center;
-        }
-        .points-badge {
-            background: #e6f7f0;
+
+        .event-badge {
+            background: #fef3c7;
+            color: #b45309;
+            font-size: 12px;
+            padding: 4px 10px;
             border-radius: 30px;
-            padding: 6px 12px;
             display: inline-block;
+            margin-bottom: 8px;
         }
+
         footer {
             font-size: 10px;
             text-align: center;
-            margin-top: 16px;
+            margin-top: 20px;
             color: #94a3b8;
         }
     </style>
@@ -260,10 +246,7 @@
         <span>9:41</span>
         <span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span>
     </div>
-    <div class="main-content" id="mainContent">
-        <!-- dynamic content loaded via js -->
-        <div id="dynamicPanel">Loading...</div>
-    </div>
+    <div class="main-content" id="mainContent"></div>
     <div class="bottom-tabs">
         <button class="tab-item" data-tab="home"><i class="fas fa-home"></i><span>Home</span></button>
         <button class="tab-item" data-tab="meetup"><i class="fas fa-comments"></i><span>Meetup</span></button>
@@ -274,139 +257,175 @@
 </div>
 
 <script>
-    // ----------------------------- MOCK DATA ----------------------------------
+    // ----- MOCK DATA -----
     let currentUser = {
         name: "Hamza Ali",
-        points: 1270,
-        trustScore: 742,
+        points: 1890,
+        trustScore: 842,
         circle: "Gulshan Block 5",
         avatar: "HA"
     };
 
-    // Home: community posts (own + followed circles)
+    // Community posts with images & events mixed
     let communityPosts = [
-        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Does anyone know a good electrician? Urgent! 🔌", likes: 5, comments: 2, timestamp: "2h ago", type: "post" },
-        { id: 2, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Lost my cat near Park Lane. Please help! 📍", likes: 12, comments: 4, timestamp: "5h ago", type: "post" },
-        { id: 3, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Free sewing classes this weekend at community center. Register in comments!", likes: 23, comments: 7, timestamp: "yesterday", type: "post" },
+        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Found a lost puppy near KFC! Anyone recognize? 🐕", image: "https://picsum.photos/id/106/300/180", likes: 24, comments: 5, timestamp: "1h ago", type: "post" },
+        { id: 2, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Our street cleaning drive tomorrow at 8 AM. Join us!", image: "https://picsum.photos/id/13/300/180", likes: 42, comments: 12, timestamp: "3h ago", type: "event" },
+        { id: 3, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Free iftar gathering at community center. Bring a dish to share!", image: "https://picsum.photos/id/30/300/180", likes: 67, comments: 21, timestamp: "yesterday", type: "event" },
+        { id: 4, circle: "Johar Town (followed)", userName: "Bilal A.", avatar: "BA", text: "Beautiful sunset at Racecourse Park 🌅", image: "https://picsum.photos/id/96/300/180", likes: 33, comments: 4, timestamp: "5h ago", type: "post" },
+        { id: 5, circle: "Gulshan Block 5", userName: "Fatima Z.", avatar: "FZ", text: "Yard sale this Saturday! Furniture, books, plants.", image: "https://picsum.photos/id/20/300/180", likes: 18, comments: 7, timestamp: "2h ago", type: "event" }
     ];
 
-    let followedCircles = ["Defence Phase 2", "Saddar Town"];
+    let followedCircles = ["Defence Phase 2", "Johar Town", "Clifton"];
 
-    // Meetup: chats + find friends
+    // Meetup data
     let chatList = [
-        { id: 1, name: "Ayesha Siddiqui", avatar: "AS", lastMsg: "Thanks for the help yesterday!", time: "10:32", unread: 2 },
-        { id: 2, name: "Bilal Ahmed", avatar: "BA", lastMsg: "Meeting at 7pm?", time: "09:15", unread: 0 },
+        { id: 1, name: "Ayesha Siddiqui", avatar: "AS", lastMsg: "Thanks for the help!", time: "10:32", unread: 2 },
+        { id: 2, name: "Bilal Ahmed", avatar: "BA", lastMsg: "See you at 7", time: "09:15", unread: 0 },
+        { id: 3, name: "Dr. Noman", avatar: "DN", lastMsg: "Clinic timings updated", time: "07:50", unread: 1 }
     ];
     let friendSuggestions = [
-        { id: 101, name: "Fatima Zafar", avatar: "FZ", mutualCircle: "Gulshan Block 5", status: "add" },
-        { id: 102, name: "Rizwan Khan", avatar: "RK", mutualCircle: "Defence Phase 2", status: "add" },
+        { id: 101, name: "Fatima Zafar", avatar: "FZ", mutualCircle: "Gulshan Block 5" },
+        { id: 102, name: "Rizwan Khan", avatar: "RK", mutualCircle: "Defence Phase 2" },
+        { id: 103, name: "Mahnoor Ali", avatar: "MA", mutualCircle: "Johar Town" }
     ];
 
-    // Quick Get questions
+    // Quick get questions
     let locationSpecificQuestions = [
-        { id: 201, title: "What's the current petrol price at PSO Anarkali?", location: "Anarkali", askedBy: "Ali", answers: 2, timeAgo: "15 min", pinnedLocation: true },
-        { id: 202, title: "Is the road open near Kalma Chowk?", location: "Kalma Chowk", askedBy: "Zara", answers: 1, timeAgo: "45 min", pinnedLocation: true },
+        { id: 201, title: "Current petrol price at PSO Anarkali?", location: "Anarkali", askedBy: "Ali", answers: 3, timeAgo: "15 min" },
+        { id: 202, title: "Is road open near Kalma Chowk?", location: "Kalma Chowk", askedBy: "Zara", answers: 2, timeAgo: "45 min" },
+        { id: 203, title: "Which pharmacy has augmentin near DHA?", location: "DHA Phase 2", askedBy: "Sarah", answers: 1, timeAgo: "2h" }
     ];
 
     let circleMemberQuestions = [
-        { id: 301, circle: "Gulshan Block 5", question: "Any pharmacy open right now near KDA?", askedBy: "Nadia", replies: 3, timeAgo: "1h" },
-        { id: 302, circle: "Defence Phase 2 (followed)", question: "Best tikka boti place near Y block?", askedBy: "Hamza", replies: 5, timeAgo: "3h" },
+        { id: 301, circle: "Gulshan Block 5", question: "Any electrician available right now?", askedBy: "Nadia", replies: 4, timeAgo: "1h" },
+        { id: 302, circle: "Defence Phase 2 (followed)", question: "Best mandi near Y block?", askedBy: "Hamza", replies: 6, timeAgo: "3h" },
+        { id: 303, circle: "Gulshan Block 5", question: "Gas pressure issue? Anyone else?", askedBy: "Khalid", replies: 2, timeAgo: "30 min" }
     ];
 
     let notificationsList = [
-        { id: 1, text: "Your answer was rated 5★! +18 points", time: "10 min ago", type: "rating" },
-        { id: 2, text: "New question in your circle: 'Where to get printer refill?'", time: "1h ago", type: "circle_q" },
-        { id: 3, text: "You earned 50 points for weekly streak!", time: "yesterday", type: "points" },
-        { id: 4, text: "Sana K. replied to your question about electricity", time: "2h ago", type: "answer" },
+        { text: "Your answer was rated 5★! +24 points", time: "10 min ago" },
+        { text: "New question in Gulshan Block 5: 'Where to get printer refill?'", time: "1h ago" },
+        { text: "You earned 50 points for weekly streak!", time: "yesterday" },
+        { text: "Sana K. replied to your question about electricity", time: "2h ago" }
     ];
 
-    // Helper functions for dynamic renders
+    // ---- Enhanced circles list for join tab (many circles) ----
+    let allCircles = [
+        "Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8", "PECHS", "Gulistan-e-Jauhar", "North Nazimabad", "Bahria Town Rawalpindi", "Faisalabad Peoples Colony", "Model Town Lahore", "Saddar Rawalpindi", "DHA Karachi Phase 8"
+    ];
+
+    // ---- Home state management (3 subtabs) ----
+    let homeSubTab = "posts"; // "posts", "joincircle", "eventsmedia"
+
     function renderHome() {
         let html = `<div class="top-tabs" id="homeTopTabs">
-                        <button class="top-tab-btn active" data-home-tab="posts">Add post</button>
-                        <button class="top-tab-btn" data-home-tab="circles">Join circle</button>
+                        <button class="top-tab-btn ${homeSubTab === 'posts' ? 'active' : ''}" data-home-tab="posts">📝 Add post</button>
+                        <button class="top-tab-btn ${homeSubTab === 'joincircle' ? 'active' : ''}" data-home-tab="joincircle">➕ Join circle</button>
+                        <button class="top-tab-btn ${homeSubTab === 'eventsmedia' ? 'active' : ''}" data-home-tab="eventsmedia">🎉 Events & Media</button>
                     </div>`;
-        const activeTab = window._homeTab || "posts";
-        if (activeTab === "posts") {
-            html += `<div><button id="createPostBtn" style="margin-bottom: 14px; background:#0f3b2c;"><i class="fas fa-plus-circle"></i> Create new post</button></div>`;
+
+        if (homeSubTab === "posts") {
+            html += `<div style="margin-bottom: 16px;"><button id="createNewPostBtn" style="background:#0f3b2c;"><i class="fas fa-plus-circle"></i> Share photo / update</button></div>`;
+            // show mixed posts (including images)
             communityPosts.forEach(post => {
                 html += `<div class="post-card">
                             <div class="post-header">
                                 <div class="avatar">${post.avatar}</div>
                                 <div><div class="user-name">${post.userName}</div><div class="circle-badge"><i class="fas fa-circle-nodes"></i> ${post.circle}</div></div>
-                            </div>
-                            <div class="post-text">${post.text}</div>
-                            <div class="post-stats">
-                                <span><i class="far fa-heart"></i> ${post.likes}</span>
-                                <span><i class="far fa-comment"></i> ${post.comments}</span>
-                                <span>${post.timestamp}</span>
-                            </div>
-                            <div class="input-row">
-                                <input type="text" placeholder="Write a comment..." id="commentInput-${post.id}">
-                                <button class="reply-btn" data-postid="${post.id}">Reply</button>
-                            </div>
-                        </div>`;
+                            </div>`;
+                if (post.type === "event") html += `<div class="event-badge"><i class="fas fa-calendar-alt"></i> Event</div>`;
+                html += `<div class="post-text">${post.text}</div>`;
+                if (post.image) html += `<img src="${post.image}" class="post-img" alt="post media">`;
+                html += `<div class="post-stats">
+                            <span><i class="far fa-heart"></i> ${post.likes}</span>
+                            <span><i class="far fa-comment"></i> ${post.comments}</span>
+                            <span>${post.timestamp}</span>
+                        </div>
+                        <div class="input-row">
+                            <input type="text" placeholder="Write a comment..." id="commentInput-${post.id}">
+                            <button class="reply-post-btn" data-id="${post.id}">Reply</button>
+                        </div>
+                    </div>`;
             });
-        } else {
-            // Join Circle tab: search & random relevant circles
+        } 
+        else if (homeSubTab === "joincircle") {
             html += `<div class="search-circle">
                         <i class="fas fa-search"></i>
                         <input type="text" id="circleSearchInput" placeholder="Search circle by name...">
                     </div>
                     <div id="circleSearchResults"></div>
-                    <h4>✨ Recommended for you</h4>
-                    <div id="recommendedCircles"></div>`;
-            // populate recommended & search logic later
+                    <h4><i class="fas fa-star"></i> Popular circles near you</h4>
+                    <div id="allCirclesList"></div>`;
+            // will populate after render
             setTimeout(() => {
-                const recommended = ["Johar Town", "Clifton Block 8", "PECHS", "Gulistan-e-Jauhar"];
-                const container = document.getElementById("recommendedCircles");
-                if(container) container.innerHTML = recommended.map(c => `<div class="circle-item"><span><i class="fas fa-map-marker-alt"></i> ${c}</span><button class="join-btn" data-circle="${c}">Join</button></div>`).join('');
+                const container = document.getElementById("allCirclesList");
+                if (container) {
+                    container.innerHTML = allCircles.map(c => `<div class="circle-item"><span><i class="fas fa-map-marker-alt"></i> ${c}</span><button class="join-circle-btn" data-circle="${c}">Join</button></div>`).join('');
+                }
                 const searchInput = document.getElementById("circleSearchInput");
-                if(searchInput) {
+                if (searchInput) {
                     searchInput.addEventListener("input", (e) => {
-                        const val = e.target.value.toLowerCase();
-                        const filtered = recommended.filter(c => c.toLowerCase().includes(val));
+                        const term = e.target.value.toLowerCase();
+                        const filtered = allCircles.filter(c => c.toLowerCase().includes(term));
                         const resultsDiv = document.getElementById("circleSearchResults");
-                        if(resultsDiv) resultsDiv.innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-btn" data-circle="${c}">Join</button></div>`).join('');
+                        if (resultsDiv) resultsDiv.innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle-btn" data-circle="${c}">Join</button></div>`).join('');
                     });
                 }
-                document.querySelectorAll(".join-btn").forEach(btn => {
+                document.querySelectorAll(".join-circle-btn").forEach(btn => {
                     btn.addEventListener("click", (e) => {
-                        alert(`You joined ${btn.getAttribute("data-circle")} circle! (Demo)`);
+                        const circleName = btn.getAttribute("data-circle");
+                        alert(`🎉 You requested to join "${circleName}" circle! (Demo: will appear in feed after approval)`);
                     });
                 });
             }, 10);
+        } 
+        else if (homeSubTab === "eventsmedia") {
+            // show events & media only (filter events and posts with images)
+            const eventsMediaPosts = communityPosts.filter(p => p.type === "event" || (p.image && p.type !== "event"));
+            if (eventsMediaPosts.length === 0) html += `<p>No events or media yet. Be the first to share!</p>`;
+            eventsMediaPosts.forEach(post => {
+                html += `<div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar">${post.avatar}</div>
+                                <div><div class="user-name">${post.userName}</div><div class="circle-badge">${post.circle}</div></div>
+                            </div>`;
+                if (post.type === "event") html += `<div class="event-badge"><i class="fas fa-calendar-check"></i> Upcoming event</div>`;
+                html += `<div class="post-text">${post.text}</div>`;
+                if (post.image) html += `<img src="${post.image}" class="post-img" alt="media">`;
+                html += `<div class="post-stats"><span><i class="far fa-heart"></i> ${post.likes}</span><span>${post.timestamp}</span></div>
+                        <div class="input-row"><input placeholder="React or comment..." id="eventComment-${post.id}"><button class="event-reply" data-id="${post.id}">❤️</button></div>
+                    </div>`;
+            });
         }
         return html;
     }
 
-    // Meetup tab: Chats & Find friend (two top tabs)
+    // Meetup sub tabs
     let meetupSubTab = "chats";
     function renderMeetup() {
         let html = `<div class="top-tabs" id="meetupTopTabs">
-                        <button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">Chats</button>
-                        <button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">Find Friend</button>
+                        <button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button>
+                        <button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">👥 Find Friend</button>
                     </div>`;
         if (meetupSubTab === "chats") {
             chatList.forEach(chat => {
-                html += `<div class="chat-card" style="display:flex; justify-content:space-between; align-items:center;">
-                            <div style="display:flex; gap:12px;"><div class="avatar" style="width:48px; height:48px;">${chat.avatar}</div>
-                            <div><strong>${chat.name}</strong><div style="font-size:13px; color:#475569;">${chat.lastMsg}</div></div></div>
-                            <div style="text-align:right;"><span style="font-size:11px;">${chat.time}</span>${chat.unread>0? `<span style="background:#0f3b2c; color:white; border-radius:20px; padding:2px 8px; margin-left:6px;">${chat.unread}</span>`:''}</div>
+                html += `<div class="post-card" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; gap:12px;"><div class="avatar">${chat.avatar}</div><div><strong>${chat.name}</strong><div style="font-size:13px;">${chat.lastMsg}</div></div></div>
+                            <div>${chat.unread ? `<span style="background:#0f3b2c; color:white; border-radius:20px; padding:2px 8px;">${chat.unread}</span>` : `<span style="font-size:11px;">${chat.time}</span>`}</div>
                         </div>`;
             });
         } else {
             friendSuggestions.forEach(f => {
-                html += `<div class="friend-card" style="display:flex; justify-content:space-between; align-items:center;">
+                html += `<div class="post-card" style="display:flex; justify-content:space-between;">
                             <div style="display:flex; gap:12px;"><div class="avatar">${f.avatar}</div><div><strong>${f.name}</strong><div style="font-size:12px;">${f.mutualCircle}</div></div></div>
-                            <button class="add-friend-btn" data-friend="${f.name}" style="background:#0f3b2c; padding:6px 12px;">Add</button>
+                            <button class="sendFriendReqBtn" data-name="${f.name}">Add Friend</button>
                         </div>`;
             });
         }
         return html;
     }
 
-    // Quick Get: three top tabs: location specific, circle+followed questions, ask question
+    // Quick get tabs
     let quickSubTab = "location";
     function renderQuickGet() {
         let html = `<div class="top-tabs" id="quickTopTabs">
@@ -417,63 +436,63 @@
         if (quickSubTab === "location") {
             locationSpecificQuestions.forEach(q => {
                 html += `<div class="question-card">
-                            <div class="question-header"><div class="avatar">📍</div><div><strong>${q.title}</strong><div style="font-size:12px;">📍 ${q.location} • asked by ${q.askedBy} • ${q.timeAgo}</div></div></div>
+                            <div><strong>${q.title}</strong><div style="font-size:12px;">📍 ${q.location} • asked by ${q.askedBy} • ${q.timeAgo}</div></div>
                             <div class="post-stats">${q.answers} answers</div>
-                            <div class="input-row"><input placeholder="Your answer (with photo/GPS mock)..." id="ansLoc-${q.id}"><button class="reply-to-q" data-qid="${q.id}">Reply</button></div>
+                            <div class="input-row"><input placeholder="Your answer (photo/GPS mock)" id="ansLoc-${q.id}"><button class="replyLocBtn" data-id="${q.id}">Reply</button></div>
                         </div>`;
             });
         } else if (quickSubTab === "circle") {
             circleMemberQuestions.forEach(q => {
                 html += `<div class="question-card">
-                            <div><span class="circle-badge"><i class="fas fa-circle"></i> ${q.circle}</span><span style="margin-left: 8px; font-size:12px;">by ${q.askedBy}, ${q.timeAgo}</span></div>
+                            <div><span class="circle-badge"><i class="fas fa-circle"></i> ${q.circle}</span> • <span>by ${q.askedBy}, ${q.timeAgo}</span></div>
                             <div class="post-text"><strong>❓ ${q.question}</strong></div>
                             <div class="post-stats">💬 ${q.replies} replies</div>
-                            <div class="input-row"><input placeholder="Reply to this question..." id="replyCircle-${q.id}"><button class="reply-circle-q" data-qid="${q.id}">Reply</button></div>
+                            <div class="input-row"><input placeholder="Reply..." id="replyCircle-${q.id}"><button class="replyCircleBtn" data-id="${q.id}">Reply</button></div>
                         </div>`;
             });
         } else {
-            html += `<div class="ask-card">
-                        <textarea id="newQuestionText" rows="2" placeholder="Type your question... (e.g., What's the traffic situation on Mall road?)" style="width:100%; border-radius:20px; padding:12px; border:1px solid #e2e8f0;"></textarea>
-                        <div style="margin: 10px 0;"><button id="askLocationToggleBtn" style="background:#e2e8f0; color:#1e293b;">📍 Attach location (free)</button></div>
-                        <input type="text" id="questionLocation" placeholder="Optional: add place name (Anarkali / Kalma Chowk)" style="width:100%; margin-bottom:12px;">
-                        <button id="submitQuestionBtn">Ask Question (free, uses daily limit)</button>
-                        <p style="font-size:12px; margin-top:8px;">📌 Free: first 10 questions/day. Extra questions cost 10 points each.</p>
+            html += `<div class="post-card">
+                        <textarea id="newQuestionText" rows="2" placeholder="Ask anything about prices, roads, utilities..." style="width:100%; border-radius:20px; padding:12px; border:1px solid #e2e8f0;"></textarea>
+                        <div style="margin: 12px 0;"><input type="text" id="questionLocation" placeholder="📍 Attach location (optional, for geofenced question)" style="width:100%; padding:10px; border-radius:30px;"></div>
+                        <button id="submitQuestionBtn">📢 Ask Question (free, 1st 10/day)</button>
+                        <p style="font-size:12px; margin-top:10px;">💡 Hidden geofenced questions are free. Use points after limit.</p>
                     </div>`;
         }
         return html;
     }
 
     function renderNotifications() {
-        let html = `<h3 style="margin-bottom:12px;">🔔 Notifications</h3>`;
-        notificationsList.forEach(notif => {
-            html += `<div class="notification-item"><i class="fas fa-bell" style="margin-right:12px; color:#0f3b2c;"></i> ${notif.text}<div style="font-size:11px; color:#94a3b8;">${notif.time}</div></div>`;
+        let html = `<h3 style="margin-bottom:16px;">🔔 Notifications</h3>`;
+        notificationsList.forEach(n => {
+            html += `<div class="post-card"><i class="fas fa-bell" style="margin-right:12px;"></i> ${n.text}<div style="font-size:11px; color:#7c8ba0;">${n.time}</div></div>`;
         });
         return html;
     }
 
     function renderProfile() {
-        return `<div class="profile-section">
+        return `<div class="post-card" style="text-align:center;">
                     <div class="avatar" style="width:80px; height:80px; margin: 0 auto 12px; font-size:28px;">${currentUser.avatar}</div>
                     <h2>${currentUser.name}</h2>
-                    <div class="points-badge"><i class="fas fa-coins"></i> ${currentUser.points} points</div>
-                    <div>⭐ Trust Score: ${currentUser.trustScore}</div>
-                    <div><i class="fas fa-circle-nodes"></i> Home Circle: ${currentUser.circle}</div>
+                    <div style="background:#e3f5ec; border-radius:30px; display:inline-block; padding:6px 16px;"><i class="fas fa-coins"></i> ${currentUser.points} points</div>
+                    <p>⭐ Trust Score: ${currentUser.trustScore}</p>
+                    <p><i class="fas fa-circle-nodes"></i> Home Circle: ${currentUser.circle}</p>
                     <hr style="margin:16px 0;">
-                    <button id="upgradePremiumBtn" style="background:#c2410c;">✨ Upgrade Premium (Rs 1000/mo)</button>
+                    <button id="premiumBtn" style="background:#c2410c;">✨ Upgrade Premium (Rs 1000/mo)</button>
                     <div style="margin-top:16px; text-align:left;">
-                        <h4>Stats</h4>
-                        <p>✅ Answers given: 47</p>
-                        <p>🏆 Weekly streak: 12 days</p>
-                        <p>❤️ Thanks received: 23</p>
+                        <h4>Your impact</h4>
+                        <p>✅ Answers given: 63</p>
+                        <p>🏆 Longest streak: 21 days</p>
+                        <p>❤️ Thanks received: 47</p>
                     </div>
-                    <footer>Apki awaz hai kisi ka sahara</footer>
+                    <footer>🇵🇰 Apki awaz hai kisi ka sahara</footer>
                 </div>`;
     }
 
-    // Global render based on active main tab
+    // main render switch
     let activeMainTab = "home";
+
     function renderAll() {
-        const container = document.getElementById("dynamicPanel");
+        const container = document.getElementById("mainContent");
         if (!container) return;
         let content = "";
         if (activeMainTab === "home") content = renderHome();
@@ -482,72 +501,93 @@
         else if (activeMainTab === "notifications") content = renderNotifications();
         else if (activeMainTab === "profile") content = renderProfile();
         container.innerHTML = content;
-        attachTabEventListeners();
-        attachDynamicButtons();
+        attachSubTabEvents();
+        attachActionButtons();
     }
 
-    function attachTabEventListeners() {
-        // home inner tabs (add post / join circle)
-        const homePostBtn = document.querySelector("[data-home-tab='posts']");
-        const homeCircleBtn = document.querySelector("[data-home-tab='circles']");
-        if (homePostBtn && homeCircleBtn) {
-            homePostBtn.onclick = () => { window._homeTab = "posts"; renderAll(); };
-            homeCircleBtn.onclick = () => { window._homeTab = "circles"; renderAll(); };
-        }
-        // meetup inner tabs
+    function attachSubTabEvents() {
+        // Home sub tabs
+        const homePostsBtn = document.querySelector("[data-home-tab='posts']");
+        const homeCircleBtn = document.querySelector("[data-home-tab='joincircle']");
+        const homeEventsBtn = document.querySelector("[data-home-tab='eventsmedia']");
+        if (homePostsBtn) homePostsBtn.onclick = () => { homeSubTab = "posts"; renderAll(); };
+        if (homeCircleBtn) homeCircleBtn.onclick = () => { homeSubTab = "joincircle"; renderAll(); };
+        if (homeEventsBtn) homeEventsBtn.onclick = () => { homeSubTab = "eventsmedia"; renderAll(); };
+
+        // Meetup sub tabs
         const meetupChats = document.querySelector("[data-meetup-tab='chats']");
         const meetupFriends = document.querySelector("[data-meetup-tab='friends']");
         if (meetupChats) meetupChats.onclick = () => { meetupSubTab = "chats"; renderAll(); };
         if (meetupFriends) meetupFriends.onclick = () => { meetupSubTab = "friends"; renderAll(); };
-        // Quick get tabs
-        const locTab = document.querySelector("[data-quick-tab='location']");
-        const circTab = document.querySelector("[data-quick-tab='circle']");
-        const askTab = document.querySelector("[data-quick-tab='ask']");
-        if (locTab) locTab.onclick = () => { quickSubTab = "location"; renderAll(); };
-        if (circTab) circTab.onclick = () => { quickSubTab = "circle"; renderAll(); };
-        if (askTab) askTab.onclick = () => { quickSubTab = "ask"; renderAll(); };
+
+        // Quick sub tabs
+        const qLoc = document.querySelector("[data-quick-tab='location']");
+        const qCircle = document.querySelector("[data-quick-tab='circle']");
+        const qAsk = document.querySelector("[data-quick-tab='ask']");
+        if (qLoc) qLoc.onclick = () => { quickSubTab = "location"; renderAll(); };
+        if (qCircle) qCircle.onclick = () => { quickSubTab = "circle"; renderAll(); };
+        if (qAsk) qAsk.onclick = () => { quickSubTab = "ask"; renderAll(); };
     }
 
-    function attachDynamicButtons() {
-        // reply to location questions
-        document.querySelectorAll(".reply-to-q").forEach(btn => {
+    function attachActionButtons() {
+        // create new post (image/text)
+        const createBtn = document.getElementById("createNewPostBtn");
+        if (createBtn) {
+            createBtn.onclick = () => {
+                let postText = prompt("Share an update, event, or photo caption:");
+                if (postText) {
+                    let hasImage = confirm("Add a sample image? (demo)");
+                    let newPost = {
+                        id: Date.now(),
+                        circle: currentUser.circle,
+                        userName: currentUser.name,
+                        avatar: currentUser.avatar,
+                        text: postText,
+                        image: hasImage ? "https://picsum.photos/id/26/300/180" : null,
+                        likes: 0,
+                        comments: 0,
+                        timestamp: "just now",
+                        type: "post"
+                    };
+                    communityPosts.unshift(newPost);
+                    renderAll();
+                }
+            };
+        }
+        // reply buttons for posts
+        document.querySelectorAll(".reply-post-btn").forEach(btn => {
             btn.onclick = (e) => {
-                const qid = btn.getAttribute("data-qid");
-                alert(`Mock: Your answer recorded for location question #${qid}. +points after rating (demo).`);
+                const id = btn.getAttribute("data-id");
+                alert(`Comment added on post ${id} (demo). +1 interaction`);
             };
         });
-        document.querySelectorAll(".reply-circle-q").forEach(btn => {
-            btn.onclick = () => alert("Reply sent to circle question! (demo)");
+        document.querySelectorAll(".replyLocBtn").forEach(btn => {
+            btn.onclick = () => alert("Mock: Answer submitted! Points will be credited after rating.");
+        });
+        document.querySelectorAll(".replyCircleBtn").forEach(btn => {
+            btn.onclick = () => alert("Reply added to circle question.");
         });
         const submitQuestion = document.getElementById("submitQuestionBtn");
         if (submitQuestion) {
             submitQuestion.onclick = () => {
-                const questionText = document.getElementById("newQuestionText")?.value;
-                const location = document.getElementById("questionLocation")?.value;
-                if (!questionText) return alert("Please write a question.");
-                alert(`Question posted: "${questionText}" ${location ? '📍 at '+location : ''}\n(limit check: free within 10/day, after 10 costs points). Demo added.`);
-                // In real scenario: update ui
-                document.getElementById("newQuestionText").value = '';
+                const qText = document.getElementById("newQuestionText")?.value;
+                if (!qText) return alert("Please write a question.");
+                alert(`Question posted: "${qText}". (Free today)`);
+                document.getElementById("newQuestionText").value = "";
+                if(document.getElementById("questionLocation")) document.getElementById("questionLocation").value = "";
             };
         }
-        const createPost = document.getElementById("createPostBtn");
-        if (createPost) {
-            createPost.onclick = () => {
-                let newPostText = prompt("Write your community post:");
-                if (newPostText) alert(`Post added to ${currentUser.circle} circle (demo).`);
-            };
-        }
-        document.querySelectorAll(".add-friend-btn").forEach(btn => {
-            btn.onclick = (e) => {
-                const name = btn.getAttribute("data-friend");
-                alert(`Friend request sent to ${name}!`);
-            };
+        document.querySelectorAll(".sendFriendReqBtn").forEach(btn => {
+            btn.onclick = (e) => alert(`Friend request sent to ${btn.getAttribute("data-name")}`);
         });
-        const premiumBtn = document.getElementById("upgradePremiumBtn");
-        if (premiumBtn) premiumBtn.onclick = () => alert("Premium subscription coming soon. Unlimited questions, no ads, +benefits.");
+        const premium = document.getElementById("premiumBtn");
+        if (premium) premium.onclick = () => alert("Premium subscription: unlimited questions, no ads, bonus points.");
+        document.querySelectorAll(".event-reply").forEach(btn => {
+            btn.onclick = () => alert("You reacted to this event! 👍");
+        });
     }
 
-    // bottom tab switch
+    // bottom tab listeners
     document.querySelectorAll(".tab-item").forEach(tab => {
         tab.addEventListener("click", (e) => {
             const tabName = tab.getAttribute("data-tab");
@@ -560,7 +600,7 @@
         });
     });
 
-    // initial render
+    // start
     document.querySelector(".tab-item[data-tab='home']").classList.add("active");
     renderAll();
 </script>

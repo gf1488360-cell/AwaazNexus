@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>AwaazNexus – Community & Marketplace</title>
+    <title>AwaazNexus – Your Voice, Someone's Support</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -18,9 +20,9 @@
             padding: 16px;
         }
         .phone {
-            max-width: 380px;
+            max-width: 400px;
             width: 100%;
-            height: 700px;
+            height: 720px;
             background: white;
             border-radius: 40px;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
@@ -36,6 +38,7 @@
             display: flex;
             justify-content: space-between;
             background: white;
+            color: #1e293b;
         }
         .main-content {
             flex: 1;
@@ -43,29 +46,26 @@
             padding: 16px;
             scroll-behavior: smooth;
         }
-        /* 5 tabs fixed in one line */
         .bottom-tabs {
             display: flex;
             justify-content: space-around;
             background: white;
             border-top: 1px solid #e9eef3;
-            padding: 8px 8px 12px;
+            padding: 8px 12px 14px;
         }
         .tab-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3px;
-            font-size: 10px;
+            gap: 4px;
+            font-size: 11px;
             color: #8e9aaf;
             background: none;
             border: none;
             cursor: pointer;
             font-weight: 500;
-            flex: 1;
-            text-align: center;
         }
-        .tab-item i { font-size: 20px; }
+        .tab-item i { font-size: 22px; }
         .tab-item.active { color: #0f3b2c; }
         .top-tabs {
             display: flex;
@@ -95,13 +95,13 @@
             background: #0f3b2c;
             border-radius: 2px;
         }
-        .post-card, .product-card, .order-card {
+        .post-card, .event-card, .question-card {
             background: white;
             border-radius: 24px;
             padding: 14px;
             margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
             border: 1px solid #edf2f7;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .post-header {
             display: flex;
@@ -124,50 +124,18 @@
             width: 100%;
             border-radius: 20px;
             margin: 10px 0;
-            max-height: 180px;
+            max-height: 200px;
             object-fit: cover;
+            background: #eef2f8;
         }
-        .ad-badge {
-            background: #e2e3e5;
-            color: #4b5563;
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 8px;
-        }
-        .event-badge {
-            background: #fef3c7;
-            color: #b45309;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-        .product-price { font-weight: 700; color: #0f3b2c; font-size: 16px; }
-        .order-status {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .status-pending { background: #fef3c7; color: #b45309; }
-        .status-shipped { background: #dbeafe; color: #1e40af; }
-        .status-delivered { background: #d1fae5; color: #065f46; }
-        .marketplace-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        button {
-            background: #0f3b2c;
-            color: white;
-            border: none;
-            border-radius: 40px;
-            padding: 8px 16px;
-            font-weight: 600;
-            cursor: pointer;
+        .user-name { font-weight: 700; font-size: 15px; }
+        .circle-badge { font-size: 11px; color: #5b6e8c; }
+        .post-stats {
+            display: flex;
+            gap: 18px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #5b6e8c;
         }
         .input-row {
             display: flex;
@@ -179,16 +147,22 @@
             padding: 10px 14px;
             border-radius: 40px;
             border: 1px solid #e2e8f0;
+            font-size: 13px;
         }
-        .circle-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 14px;
+        button {
+            background: #0f3b2c;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 8px 16px;
+            font-weight: 600;
+            cursor: pointer;
         }
         .join-btn {
             background: transparent;
             border: 1px solid #0f3b2c;
             color: #0f3b2c;
+            padding: 6px 16px;
         }
         .search-circle {
             background: #f8fafc;
@@ -199,6 +173,22 @@
             gap: 10px;
             border: 1px solid #e2edf7;
         }
+        .circle-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding: 6px 0;
+        }
+        .event-badge {
+            background: #fef3c7;
+            color: #b45309;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
         .settings-item {
             display: flex;
             justify-content: space-between;
@@ -206,156 +196,272 @@
             border-bottom: 1px solid #edf2f7;
             cursor: pointer;
         }
-        .notification-bell {
-            position: relative;
-            display: inline-block;
-            margin-right: 8px;
-        }
-        .badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #e53e3e;
-            color: white;
-            border-radius: 50%;
+        footer {
             font-size: 10px;
-            padding: 2px 5px;
+            text-align: center;
+            margin-top: 20px;
+            color: #94a3b8;
         }
-        footer { font-size: 10px; text-align: center; margin-top: 20px; color: #94a3b8; }
     </style>
 </head>
 <body>
 <div class="phone">
-    <div class="status-bar"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span></div>
+    <div class="status-bar">
+        <span>9:41</span>
+        <span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span>
+    </div>
     <div class="main-content" id="mainContent"></div>
     <div class="bottom-tabs">
         <button class="tab-item" data-tab="home"><i class="fas fa-home"></i><span>Home</span></button>
         <button class="tab-item" data-tab="meetup"><i class="fas fa-comments"></i><span>Meetup</span></button>
         <button class="tab-item" data-tab="quickget"><i class="fas fa-bolt"></i><span>Quick Get</span></button>
-        <button class="tab-item" data-tab="marketplace"><i class="fas fa-store"></i><span>Market</span></button>
+        <button class="tab-item" data-tab="notifications"><i class="fas fa-bell"></i><span>Notify</span></button>
         <button class="tab-item" data-tab="profile"><i class="fas fa-user"></i><span>Profile</span></button>
     </div>
 </div>
 
 <script>
-    // ---------- MOCK DATA ----------
-    let currentUser = { name: "Hamza Ali", points: 2450, trustScore: 892, circle: "Gulshan Block 5", avatar: "HA" };
+    // ----- USER DATA -----
+    let currentUser = {
+        name: "Hamza Ali",
+        points: 2110,
+        trustScore: 872,
+        circle: "Gulshan Block 5",
+        avatar: "HA",
+        email: "hamza@awaaz.com",
+        phone: "+92 3XX 1234567"
+    };
+
+    // ----- Community Posts (TEXT-ONLY for "Add post" tab) -----
     let textOnlyPosts = [
-        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Does anyone know a good electrician? Urgent!", likes: 8, comments: 3, timestamp: "2h ago" },
-        { id: 2, circle: "Defence Phase 2", userName: "Omar R.", avatar: "OR", text: "Lost my cat near Park Lane. Simba, white & brown.", likes: 15, comments: 6, timestamp: "5h ago" }
+        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Does anyone know a good electrician? Urgent! Lights flickering since morning.", likes: 8, comments: 3, timestamp: "2h ago" },
+        { id: 2, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Lost my cat near Park Lane. Name: Simba, white with brown patches. Please help!", likes: 15, comments: 6, timestamp: "5h ago" },
+        { id: 3, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Anyone selling a used study table? Budget around 3k.", likes: 4, comments: 2, timestamp: "yesterday" }
     ];
+
+    // ----- EVENTS & MEDIA posts (with context-matching images) -----
     let eventsMediaPosts = [
-        { id: 101, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "🐕 Found a lost puppy near KFC! Blue collar.", image: "https://picsum.photos/id/169/300/180", likes: 34, comments: 7, timestamp: "1h ago", type: "post" },
-        { id: 102, circle: "Defence Phase 2", userName: "Omar R.", avatar: "OR", text: "Street cleaning drive tomorrow 8 AM at Y Block.", image: "https://picsum.photos/id/116/300/180", likes: 27, comments: 9, timestamp: "3h ago", type: "event" }
+        { id: 101, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "🐕 FOUND a lost puppy near KFC Gulshan! Very friendly, wearing blue collar. Contact me to claim.", image: "https://picsum.photos/id/169/300/180", likes: 34, comments: 7, timestamp: "1h ago", type: "post" },
+        { id: 102, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Street cleaning drive tomorrow at 8 AM near Y Block. Join us to keep our neighborhood clean!", image: "https://picsum.photos/id/116/300/180", likes: 27, comments: 9, timestamp: "3h ago", type: "event" },
+        { id: 103, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Free iftar gathering at Community Center, 6:30 PM. Bring a dish to share! Everyone welcome.", image: "https://picsum.photos/id/127/300/180", likes: 52, comments: 14, timestamp: "6h ago", type: "event" },
+        { id: 104, circle: "Johar Town (followed)", userName: "Bilal A.", avatar: "BA", text: "Beautiful sunset at Racecourse Park – perfect evening for a walk 🌅", image: "https://picsum.photos/id/96/300/180", likes: 41, comments: 5, timestamp: "yesterday", type: "post" }
     ];
-    let adsList = [
-        { id: "ad1", business: "Khan Electronics", text: "20% off on inverters! Free installation.", cta: "Shop Now", image: "https://picsum.photos/id/0/300/100" },
-        { id: "ad2", business: "FreshMart Grocery", text: "Fresh veg delivered. Use code Awaaz10.", cta: "Order", image: "https://picsum.photos/id/13/300/100" }
+
+    let followedCircles = ["Defence Phase 2", "Johar Town", "Clifton"];
+    
+    // Meetup data
+    let chatList = [
+        { id: 1, name: "Ayesha Siddiqui", avatar: "AS", lastMsg: "Thanks for the recommendation!", time: "10:32", unread: 2 },
+        { id: 2, name: "Bilal Ahmed", avatar: "BA", lastMsg: "See you at the circle meetup", time: "09:15", unread: 0 },
+        { id: 3, name: "Dr. Noman", avatar: "DN", lastMsg: "Clinic timings changed", time: "07:50", unread: 1 }
     ];
-    let products = [
-        { id: 1, name: "Organic Basmati Rice", price: 450, business: "Kissan Store", image: "https://picsum.photos/id/127/150/150", unit: "5kg" },
-        { id: 2, name: "Handmade Wallet", price: 899, business: "Artisan Leather", image: "https://picsum.photos/id/20/150/150" },
-        { id: 3, name: "Electric Kettle", price: 2450, business: "HomeAppliances", image: "https://picsum.photos/id/26/150/150" }
+    let friendSuggestions = [
+        { id: 101, name: "Fatima Zafar", avatar: "FZ", mutualCircle: "Gulshan Block 5" },
+        { id: 102, name: "Rizwan Khan", avatar: "RK", mutualCircle: "Defence Phase 2" },
+        { id: 103, name: "Mahnoor Ali", avatar: "MA", mutualCircle: "Johar Town" }
     ];
-    let orders = [
-        { id: 101, productName: "Organic Basmati Rice", quantity: 2, total: 900, status: "delivered", date: "2025-03-20" },
-        { id: 102, productName: "Handmade Wallet", quantity: 1, total: 899, status: "shipped", date: "2025-04-01" }
+
+    // Quick Get questions
+    let locationSpecificQuestions = [
+        { id: 201, title: "Current petrol price at PSO Anarkali?", location: "Anarkali", askedBy: "Ali", answers: 3, timeAgo: "15 min" },
+        { id: 202, title: "Is road open near Kalma Chowk?", location: "Kalma Chowk", askedBy: "Zara", answers: 2, timeAgo: "45 min" },
+        { id: 203, title: "Which pharmacy has augmentin near DHA Phase 2?", location: "DHA Phase 2", askedBy: "Sarah", answers: 1, timeAgo: "2h" }
     ];
+    let circleMemberQuestions = [
+        { id: 301, circle: "Gulshan Block 5", question: "Any electrician available right now?", askedBy: "Nadia", replies: 4, timeAgo: "1h" },
+        { id: 302, circle: "Defence Phase 2 (followed)", question: "Best mandi near Y block?", askedBy: "Hamza", replies: 6, timeAgo: "3h" },
+        { id: 303, circle: "Gulshan Block 5", question: "Gas pressure low? Anyone else?", askedBy: "Khalid", replies: 2, timeAgo: "30 min" }
+    ];
+
     let notificationsList = [
         { text: "Your answer was rated 5★! +24 points", time: "10 min ago" },
-        { text: "New question in Gulshan Block 5", time: "1h ago" }
+        { text: "New question in Gulshan Block 5: 'Where to get printer refill?'", time: "1h ago" },
+        { text: "You earned 50 points for weekly streak!", time: "yesterday" },
+        { text: "Sana K. replied to your question about electricity", time: "2h ago" }
     ];
-    let allCircles = ["Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8"];
+
+    // All circles for join tab
+    let allCircles = [
+        "Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8", "PECHS", 
+        "Gulistan-e-Jauhar", "North Nazimabad", "Bahria Town Rawalpindi", "Faisalabad Peoples Colony", 
+        "Model Town Lahore", "Saddar Rawalpindi", "DHA Karachi Phase 8"
+    ];
 
     // UI state
-    let homeSubTab = "posts";
-    let marketplaceSubTab = "products";
-    let activeMainTab = "home";
+    let homeSubTab = "posts";    // "posts", "joincircle", "eventsmedia"
     let meetupSubTab = "chats";
     let quickSubTab = "location";
+    let activeMainTab = "home";
 
-    // Helper: inject two ads into feed
-    function injectAds(content, type) {
-        if (type === 'posts') {
-            let ad1 = `<div class="post-card" style="background:#fef9e3; border-left:4px solid #f59e0b;"><div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div><img src="${adsList[0].image}" class="post-img"><div class="post-text"><strong>${adsList[0].business}</strong><br>${adsList[0].text}</div><button style="background:#f59e0b;">${adsList[0].cta}</button></div>`;
-            let ad2 = `<div class="post-card" style="background:#f0f9ff; border-left:4px solid #3b82f6;"><div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div><img src="${adsList[1].image}" class="post-img"><div class="post-text"><strong>${adsList[1].business}</strong><br>${adsList[1].text}</div><button style="background:#3b82f6;">${adsList[1].cta}</button></div>`;
-            let parts = content.split('</div>');
-            if (parts.length > 2) return parts.slice(0,2).join('</div>') + ad1 + parts.slice(2).join('</div>').replace(/(<div class="post-card")/, ad2 + '$1');
-            return content + ad1 + ad2;
-        }
-        return content;
-    }
-
+    // ---------- RENDER FUNCTIONS ----------
     function renderHome() {
-        let html = `<div class="top-tabs">
+        let html = `<div class="top-tabs" id="homeTopTabs">
                         <button class="top-tab-btn ${homeSubTab === 'posts' ? 'active' : ''}" data-home-tab="posts">📝 Add post</button>
                         <button class="top-tab-btn ${homeSubTab === 'joincircle' ? 'active' : ''}" data-home-tab="joincircle">➕ Join circle</button>
                         <button class="top-tab-btn ${homeSubTab === 'eventsmedia' ? 'active' : ''}" data-home-tab="eventsmedia">🎉 Events & Media</button>
                     </div>`;
+
         if (homeSubTab === "posts") {
-            html += `<button id="createTextPostBtn" style="margin-bottom:16px;"><i class="fas fa-edit"></i> Write text update</button>`;
-            let postsHtml = '';
-            textOnlyPosts.forEach(p => {
-                postsHtml += `<div class="post-card"><div class="post-header"><div class="avatar">${p.avatar}</div><div><div class="user-name">${p.userName}</div><div class="circle-badge">${p.circle}</div></div></div><div class="post-text">${p.text}</div><div class="post-stats"><span><i class="far fa-heart"></i> ${p.likes}</span><span><i class="far fa-comment"></i> ${p.comments}</span><span>${p.timestamp}</span></div><div class="input-row"><input placeholder="Write a comment..."><button>Reply</button></div></div>`;
+            // TEXT-ONLY posts
+            html += `<div style="margin-bottom: 16px;"><button id="createTextPostBtn" style="background:#0f3b2c;"><i class="fas fa-edit"></i> Write text update</button></div>`;
+            textOnlyPosts.forEach(post => {
+                html += `<div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar">${post.avatar}</div>
+                                <div><div class="user-name">${post.userName}</div><div class="circle-badge"><i class="fas fa-circle-nodes"></i> ${post.circle}</div></div>
+                            </div>
+                            <div class="post-text">${post.text}</div>
+                            <div class="post-stats">
+                                <span><i class="far fa-heart"></i> ${post.likes}</span>
+                                <span><i class="far fa-comment"></i> ${post.comments}</span>
+                                <span>${post.timestamp}</span>
+                            </div>
+                            <div class="input-row">
+                                <input type="text" placeholder="Write a comment..." id="commentText-${post.id}">
+                                <button class="reply-text-post" data-id="${post.id}">Reply</button>
+                            </div>
+                        </div>`;
             });
-            html += injectAds(postsHtml, 'posts');
-        } else if (homeSubTab === "joincircle") {
-            html += `<div class="search-circle"><i class="fas fa-search"></i><input id="circleSearch" placeholder="Search circle..."></div><div id="circleList"></div>`;
+        } 
+        else if (homeSubTab === "joincircle") {
+            html += `<div class="search-circle">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="circleSearchInput" placeholder="Search circle by name...">
+                    </div>
+                    <div id="circleSearchResults"></div>
+                    <h4><i class="fas fa-star"></i> Popular circles near you</h4>
+                    <div id="allCirclesList"></div>`;
             setTimeout(() => {
-                const container = document.getElementById("circleList");
-                if(container) container.innerHTML = allCircles.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle" data-circle="${c}">Join</button></div>`).join('');
-                document.querySelectorAll(".join-circle").forEach(btn => btn.onclick = () => alert(`Joined ${btn.dataset.circle}`));
-                document.getElementById("circleSearch")?.addEventListener("input", (e) => {
-                    let term = e.target.value.toLowerCase();
-                    let filtered = allCircles.filter(c => c.toLowerCase().includes(term));
-                    document.getElementById("circleList").innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle" data-circle="${c}">Join</button></div>`).join('');
+                const container = document.getElementById("allCirclesList");
+                if (container) {
+                    container.innerHTML = allCircles.map(c => `<div class="circle-item"><span><i class="fas fa-map-marker-alt"></i> ${c}</span><button class="join-circle-btn" data-circle="${c}">Join</button></div>`).join('');
+                }
+                const searchInput = document.getElementById("circleSearchInput");
+                if (searchInput) {
+                    searchInput.addEventListener("input", (e) => {
+                        const term = e.target.value.toLowerCase();
+                        const filtered = allCircles.filter(c => c.toLowerCase().includes(term));
+                        const resultsDiv = document.getElementById("circleSearchResults");
+                        if (resultsDiv) resultsDiv.innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle-btn" data-circle="${c}">Join</button></div>`).join('');
+                    });
+                }
+                document.querySelectorAll(".join-circle-btn").forEach(btn => {
+                    btn.addEventListener("click", (e) => {
+                        const circleName = btn.getAttribute("data-circle");
+                        alert(`🎉 You requested to join "${circleName}" circle! (Demo)`);
+                    });
                 });
             }, 10);
-        } else if (homeSubTab === "eventsmedia") {
-            let eventsHtml = '';
-            eventsMediaPosts.forEach(e => {
-                eventsHtml += `<div class="post-card"><div class="post-header"><div class="avatar">${e.avatar}</div><div><div class="user-name">${e.userName}</div><div class="circle-badge">${e.circle}</div></div></div>${e.type === 'event' ? '<div class="event-badge">Event</div>' : ''}<div class="post-text">${e.text}</div><img src="${e.image}" class="post-img"><div class="post-stats"><span><i class="far fa-heart"></i> ${e.likes}</span><span>${e.timestamp}</span></div></div>`;
-            });
-            html += injectAds(eventsHtml, 'events');
         }
-        return html;
-    }
-
-    function renderMarketplace() {
-        let html = `<div class="top-tabs"><button class="top-tab-btn ${marketplaceSubTab === 'products' ? 'active' : ''}" data-market-tab="products">🛍️ Products</button><button class="top-tab-btn ${marketplaceSubTab === 'orders' ? 'active' : ''}" data-market-tab="orders">📦 My Orders</button></div>`;
-        if (marketplaceSubTab === "products") {
-            html += `<div class="marketplace-grid">`;
-            products.forEach(p => {
-                html += `<div class="product-card"><img src="${p.image}" style="width:100%; border-radius:16px; height:130px; object-fit:cover;"><h4 style="margin:8px 0 4px">${p.name}</h4><div class="product-price">Rs ${p.price}</div><div style="font-size:12px;">${p.business}</div><button class="order-product" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" style="margin-top:10px; width:100%;">Order</button></div>`;
-            });
-            html += `</div>`;
-        } else {
-            orders.forEach(o => {
-                let statusClass = o.status === 'pending' ? 'status-pending' : (o.status === 'shipped' ? 'status-shipped' : 'status-delivered');
-                html += `<div class="order-card"><div><strong>Order #${o.id}</strong> <span class="order-status ${statusClass}">${o.status.toUpperCase()}</span></div><div>${o.productName} x ${o.quantity}</div><div>Total: Rs ${o.total}</div><div>${o.date}</div></div>`;
+        else if (homeSubTab === "eventsmedia") {
+            if (eventsMediaPosts.length === 0) html += `<p>No events or media yet. Be the first to share!</p>`;
+            eventsMediaPosts.forEach(post => {
+                html += `<div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar">${post.avatar}</div>
+                                <div><div class="user-name">${post.userName}</div><div class="circle-badge">${post.circle}</div></div>
+                            </div>`;
+                if (post.type === "event") html += `<div class="event-badge"><i class="fas fa-calendar-check"></i> Event</div>`;
+                html += `<div class="post-text">${post.text}</div>`;
+                if (post.image) html += `<img src="${post.image}" class="post-img" alt="post content">`;
+                html += `<div class="post-stats"><span><i class="far fa-heart"></i> ${post.likes}</span><span><i class="far fa-comment"></i> ${post.comments}</span><span>${post.timestamp}</span></div>
+                        <div class="input-row"><input placeholder="React or comment..." id="eventComment-${post.id}"><button class="event-reply" data-id="${post.id}">❤️ Like</button></div>
+                    </div>`;
             });
         }
         return html;
     }
 
     function renderMeetup() {
-        let html = `<div class="top-tabs"><button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button><button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">👥 Find Friend</button></div>`;
-        if (meetupSubTab === "chats") html += `<div class="post-card"><div class="avatar">AS</div><div><strong>Ayesha</strong><div>Thanks!</div></div></div>`;
-        else html += `<div class="post-card"><div>Fatima Zafar (Gulshan)</div><button class="addFriend">Add</button></div>`;
+        let html = `<div class="top-tabs" id="meetupTopTabs">
+                        <button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button>
+                        <button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">👥 Find Friend</button>
+                    </div>`;
+        if (meetupSubTab === "chats") {
+            chatList.forEach(chat => {
+                html += `<div class="post-card" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; gap:12px;"><div class="avatar">${chat.avatar}</div><div><strong>${chat.name}</strong><div style="font-size:13px;">${chat.lastMsg}</div></div></div>
+                            <div>${chat.unread ? `<span style="background:#0f3b2c; color:white; border-radius:20px; padding:2px 8px;">${chat.unread}</span>` : `<span style="font-size:11px;">${chat.time}</span>`}</div>
+                        </div>`;
+            });
+        } else {
+            friendSuggestions.forEach(f => {
+                html += `<div class="post-card" style="display:flex; justify-content:space-between;">
+                            <div style="display:flex; gap:12px;"><div class="avatar">${f.avatar}</div><div><strong>${f.name}</strong><div style="font-size:12px;">${f.mutualCircle}</div></div></div>
+                            <button class="sendFriendReqBtn" data-name="${f.name}">Add Friend</button>
+                        </div>`;
+            });
+        }
         return html;
     }
 
     function renderQuickGet() {
-        let html = `<div class="top-tabs"><button class="top-tab-btn ${quickSubTab === 'location' ? 'active' : ''}" data-quick-tab="location">📍 Location</button><button class="top-tab-btn ${quickSubTab === 'circle' ? 'active' : ''}" data-quick-tab="circle">🏠 Circle</button><button class="top-tab-btn ${quickSubTab === 'ask' ? 'active' : ''}" data-quick-tab="ask">❓ Ask</button></div>`;
-        if (quickSubTab === "location") html += `<div class="post-card"><strong>Petrol price at Anarkali?</strong><div class="input-row"><input><button>Answer</button></div></div>`;
-        else if (quickSubTab === "circle") html += `<div class="post-card">Any electrician available? <button>Reply</button></div>`;
-        else html += `<div class="post-card"><textarea id="newQ" rows="2" placeholder="Ask..."></textarea><button id="askQBtn">Ask (free)</button></div>`;
+        let html = `<div class="top-tabs" id="quickTopTabs">
+                        <button class="top-tab-btn ${quickSubTab === 'location' ? 'active' : ''}" data-quick-tab="location">📍 Location Q</button>
+                        <button class="top-tab-btn ${quickSubTab === 'circle' ? 'active' : ''}" data-quick-tab="circle">🏠 Circle Q</button>
+                        <button class="top-tab-btn ${quickSubTab === 'ask' ? 'active' : ''}" data-quick-tab="ask">❓ Ask</button>
+                    </div>`;
+        if (quickSubTab === "location") {
+            locationSpecificQuestions.forEach(q => {
+                html += `<div class="question-card">
+                            <div><strong>${q.title}</strong><div style="font-size:12px;">📍 ${q.location} • asked by ${q.askedBy} • ${q.timeAgo}</div></div>
+                            <div class="post-stats">${q.answers} answers</div>
+                            <div class="input-row"><input placeholder="Your answer (photo/GPS mock)" id="ansLoc-${q.id}"><button class="replyLocBtn" data-id="${q.id}">Reply</button></div>
+                        </div>`;
+            });
+        } else if (quickSubTab === "circle") {
+            circleMemberQuestions.forEach(q => {
+                html += `<div class="question-card">
+                            <div><span class="circle-badge"><i class="fas fa-circle"></i> ${q.circle}</span> • <span>by ${q.askedBy}, ${q.timeAgo}</span></div>
+                            <div class="post-text"><strong>❓ ${q.question}</strong></div>
+                            <div class="post-stats">💬 ${q.replies} replies</div>
+                            <div class="input-row"><input placeholder="Reply..." id="replyCircle-${q.id}"><button class="replyCircleBtn" data-id="${q.id}">Reply</button></div>
+                        </div>`;
+            });
+        } else {
+            html += `<div class="post-card">
+                        <textarea id="newQuestionText" rows="2" placeholder="Ask anything about prices, roads, utilities..." style="width:100%; border-radius:20px; padding:12px; border:1px solid #e2e8f0;"></textarea>
+                        <div style="margin: 12px 0;"><input type="text" id="questionLocation" placeholder="📍 Attach location (optional, for geofenced question)" style="width:100%; padding:10px; border-radius:30px;"></div>
+                        <button id="submitQuestionBtn">📢 Ask Question (free, 1st 10/day)</button>
+                        <p style="font-size:12px; margin-top:10px;">💡 Hidden geofenced questions are free. Use points after limit.</p>
+                    </div>`;
+        }
+        return html;
+    }
+
+    function renderNotifications() {
+        let html = `<h3 style="margin-bottom:16px;">🔔 Notifications</h3>`;
+        notificationsList.forEach(n => {
+            html += `<div class="post-card"><i class="fas fa-bell" style="margin-right:12px;"></i> ${n.text}<div style="font-size:11px; color:#7c8ba0;">${n.time}</div></div>`;
+        });
         return html;
     }
 
     function renderProfile() {
-        let notificationBadge = notificationsList.length > 0 ? `<span class="badge">${notificationsList.length}</span>` : '';
-        return `<div class="post-card" style="text-align:center;"><div class="avatar" style="margin:0 auto;">${currentUser.avatar}</div><h2>${currentUser.name}</h2><div>⭐ ${currentUser.points} pts | Trust ${currentUser.trustScore}</div><hr><div class="settings-item"><span><i class="fas fa-bell"></i> Notifications ${notificationBadge}</span><i class="fas fa-chevron-right"></i></div><div class="settings-item"><span><i class="fas fa-user-edit"></i> Edit Profile</span><i class="fas fa-chevron-right"></i></div><div class="settings-item"><span><i class="fas fa-lock"></i> Privacy</span><i class="fas fa-chevron-right"></i></div><button id="premiumBtn" style="margin-top:16px;">Upgrade Premium</button><footer>Apki awaz hai kisi ka sahara</footer></div>`;
+        return `<div class="post-card">
+                    <div style="text-align:center;">
+                        <div class="avatar" style="width:80px; height:80px; margin: 0 auto 12px; font-size:28px;">${currentUser.avatar}</div>
+                        <h2>${currentUser.name}</h2>
+                        <div style="background:#e3f5ec; border-radius:30px; display:inline-block; padding:6px 16px;"><i class="fas fa-coins"></i> ${currentUser.points} points</div>
+                        <p>⭐ Trust Score: ${currentUser.trustScore}</p>
+                        <p><i class="fas fa-circle-nodes"></i> Home Circle: ${currentUser.circle}</p>
+                    </div>
+                    <hr style="margin:16px 0;">
+                    <h4><i class="fas fa-sliders-h"></i> Settings</h4>
+                    <div class="settings-item" id="editProfileBtn"><span><i class="fas fa-user-edit"></i> Edit Profile</span> <i class="fas fa-chevron-right"></i></div>
+                    <div class="settings-item" id="privacyBtn"><span><i class="fas fa-lock"></i> Privacy & Security</span> <i class="fas fa-chevron-right"></i></div>
+                    <div class="settings-item" id="notifPrefBtn"><span><i class="fas fa-bell"></i> Notification Preferences</span> <i class="fas fa-chevron-right"></i></div>
+                    <div class="settings-item" id="languageBtn"><span><i class="fas fa-language"></i> Language (Urdu/English)</span> <i class="fas fa-chevron-right"></i></div>
+                    <hr style="margin:16px 0;">
+                    <button id="premiumBtn" style="background:#c2410c; width:100%;">✨ Upgrade Premium (Rs 1000/mo)</button>
+                    <div style="margin-top:16px;">
+                        <h4>Your impact</h4>
+                        <p>✅ Answers given: 63</p>
+                        <p>🏆 Longest streak: 21 days</p>
+                        <p>❤️ Thanks received: 47</p>
+                    </div>
+                    <footer>🇵🇰 Apki awaz hai kisi ka sahara</footer>
+                </div>`;
     }
 
     function renderAll() {
@@ -365,45 +471,118 @@
         if (activeMainTab === "home") content = renderHome();
         else if (activeMainTab === "meetup") content = renderMeetup();
         else if (activeMainTab === "quickget") content = renderQuickGet();
-        else if (activeMainTab === "marketplace") content = renderMarketplace();
+        else if (activeMainTab === "notifications") content = renderNotifications();
         else if (activeMainTab === "profile") content = renderProfile();
         container.innerHTML = content;
-        attachDynamicEvents();
+        attachSubTabEvents();
+        attachActionButtons();
     }
 
-    function attachDynamicEvents() {
-        document.querySelectorAll("[data-home-tab]").forEach(btn => btn.addEventListener("click", (e) => { homeSubTab = e.target.dataset.homeTab; renderAll(); }));
-        document.querySelectorAll("[data-market-tab]").forEach(btn => btn.addEventListener("click", (e) => { marketplaceSubTab = e.target.dataset.marketTab; renderAll(); }));
-        document.querySelectorAll("[data-meetup-tab]").forEach(btn => btn.addEventListener("click", (e) => { meetupSubTab = e.target.dataset.meetupTab; renderAll(); }));
-        document.querySelectorAll("[data-quick-tab]").forEach(btn => btn.addEventListener("click", (e) => { quickSubTab = e.target.dataset.quickTab; renderAll(); }));
-        document.getElementById("createTextPostBtn")?.addEventListener("click", () => {
-            let txt = prompt("Write your text update:");
-            if (txt) { textOnlyPosts.unshift({ id: Date.now(), circle: currentUser.circle, userName: currentUser.name, avatar: currentUser.avatar, text: txt, likes: 0, comments: 0, timestamp: "just now" }); renderAll(); }
-        });
-        document.querySelectorAll(".order-product").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                let name = btn.dataset.name;
-                let price = parseInt(btn.dataset.price);
-                let qty = prompt("Quantity:", "1");
-                if (qty && !isNaN(qty)) { orders.unshift({ id: Date.now(), productName: name, quantity: parseInt(qty), total: price * parseInt(qty), status: "pending", date: new Date().toISOString().slice(0,10) }); alert("Order placed!"); if (marketplaceSubTab === "products") renderAll(); }
-            });
-        });
-        document.getElementById("askQBtn")?.addEventListener("click", () => alert("Question posted (free)"));
-        document.querySelectorAll(".addFriend").forEach(btn => btn.addEventListener("click", () => alert("Friend request sent")));
-        document.getElementById("premiumBtn")?.addEventListener("click", () => alert("Upgrade to premium"));
+    function attachSubTabEvents() {
+        const homePosts = document.querySelector("[data-home-tab='posts']");
+        const homeCircle = document.querySelector("[data-home-tab='joincircle']");
+        const homeEvents = document.querySelector("[data-home-tab='eventsmedia']");
+        if (homePosts) homePosts.onclick = () => { homeSubTab = "posts"; renderAll(); };
+        if (homeCircle) homeCircle.onclick = () => { homeSubTab = "joincircle"; renderAll(); };
+        if (homeEvents) homeEvents.onclick = () => { homeSubTab = "eventsmedia"; renderAll(); };
+
+        const meetChats = document.querySelector("[data-meetup-tab='chats']");
+        const meetFriends = document.querySelector("[data-meetup-tab='friends']");
+        if (meetChats) meetChats.onclick = () => { meetupSubTab = "chats"; renderAll(); };
+        if (meetFriends) meetFriends.onclick = () => { meetupSubTab = "friends"; renderAll(); };
+
+        const qLoc = document.querySelector("[data-quick-tab='location']");
+        const qCircle = document.querySelector("[data-quick-tab='circle']");
+        const qAsk = document.querySelector("[data-quick-tab='ask']");
+        if (qLoc) qLoc.onclick = () => { quickSubTab = "location"; renderAll(); };
+        if (qCircle) qCircle.onclick = () => { quickSubTab = "circle"; renderAll(); };
+        if (qAsk) qAsk.onclick = () => { quickSubTab = "ask"; renderAll(); };
     }
 
+    function attachActionButtons() {
+        // Create text-only post
+        const createTextBtn = document.getElementById("createTextPostBtn");
+        if (createTextBtn) {
+            createTextBtn.onclick = () => {
+                let postText = prompt("Write your text update (no images):");
+                if (postText && postText.trim()) {
+                    const newPost = {
+                        id: Date.now(),
+                        circle: currentUser.circle,
+                        userName: currentUser.name,
+                        avatar: currentUser.avatar,
+                        text: postText,
+                        likes: 0,
+                        comments: 0,
+                        timestamp: "just now"
+                    };
+                    textOnlyPosts.unshift(newPost);
+                    renderAll();
+                }
+            };
+        }
+        // Reply to text posts
+        document.querySelectorAll(".reply-text-post").forEach(btn => {
+            btn.onclick = (e) => {
+                const id = btn.getAttribute("data-id");
+                alert(`Comment added to post ${id} (demo).`);
+            };
+        });
+        // Reply to location / circle questions
+        document.querySelectorAll(".replyLocBtn").forEach(btn => {
+            btn.onclick = () => alert("Mock: Answer submitted! Points after rating.");
+        });
+        document.querySelectorAll(".replyCircleBtn").forEach(btn => {
+            btn.onclick = () => alert("Reply added to circle question.");
+        });
+        const submitQ = document.getElementById("submitQuestionBtn");
+        if (submitQ) {
+            submitQ.onclick = () => {
+                const qText = document.getElementById("newQuestionText")?.value;
+                if (!qText) return alert("Please write a question.");
+                alert(`Question posted: "${qText}". (Free today)`);
+                document.getElementById("newQuestionText").value = "";
+                if(document.getElementById("questionLocation")) document.getElementById("questionLocation").value = "";
+            };
+        }
+        // Friend requests
+        document.querySelectorAll(".sendFriendReqBtn").forEach(btn => {
+            btn.onclick = (e) => alert(`Friend request sent to ${btn.getAttribute("data-name")}`);
+        });
+        // Premium
+        const premium = document.getElementById("premiumBtn");
+        if (premium) premium.onclick = () => alert("Premium subscription: unlimited questions, no ads, bonus points.");
+        // Event media like
+        document.querySelectorAll(".event-reply").forEach(btn => {
+            btn.onclick = () => alert("You liked this post!");
+        });
+        // Profile settings handlers
+        const editProfile = document.getElementById("editProfileBtn");
+        const privacy = document.getElementById("privacyBtn");
+        const notifPref = document.getElementById("notifPrefBtn");
+        const lang = document.getElementById("languageBtn");
+        if (editProfile) editProfile.onclick = () => alert("Edit Profile (demo): change name, photo, etc.");
+        if (privacy) privacy.onclick = () => alert("Privacy & Security: manage data, block list.");
+        if (notifPref) notifPref.onclick = () => alert("Choose which notifications to receive.");
+        if (lang) lang.onclick = () => alert("Switch between Urdu and English (demo).");
+    }
+
+    // Bottom tab listeners
     document.querySelectorAll(".tab-item").forEach(tab => {
         tab.addEventListener("click", () => {
-            activeMainTab = tab.dataset.tab;
-            document.querySelectorAll(".tab-item").forEach(t => t.classList.remove("active"));
-            tab.classList.add("active");
-            renderAll();
+            const tabName = tab.getAttribute("data-tab");
+            if (tabName) {
+                activeMainTab = tabName;
+                document.querySelectorAll(".tab-item").forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+                renderAll();
+            }
         });
     });
+
+    // Initialize
     document.querySelector(".tab-item[data-tab='home']").classList.add("active");
     renderAll();
 </script>
 </body>
 </html>
-                                                                                                           

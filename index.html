@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>AwaazNexus – Community, Circles, Quick Get</title>
+    <title>AwaazNexus – Your Voice, Someone's Support</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background: #f0f2f5;
@@ -24,7 +19,6 @@
             min-height: 100vh;
             padding: 16px;
         }
-
         .phone {
             max-width: 400px;
             width: 100%;
@@ -37,7 +31,6 @@
             flex-direction: column;
             position: relative;
         }
-
         .status-bar {
             padding: 12px 20px 4px;
             font-size: 14px;
@@ -47,14 +40,12 @@
             background: white;
             color: #1e293b;
         }
-
         .main-content {
             flex: 1;
             overflow-y: auto;
             padding: 16px;
             scroll-behavior: smooth;
         }
-
         .bottom-tabs {
             display: flex;
             justify-content: space-around;
@@ -62,7 +53,6 @@
             border-top: 1px solid #e9eef3;
             padding: 8px 12px 14px;
         }
-
         .tab-item {
             display: flex;
             flex-direction: column;
@@ -75,15 +65,8 @@
             cursor: pointer;
             font-weight: 500;
         }
-
-        .tab-item i {
-            font-size: 22px;
-        }
-
-        .tab-item.active {
-            color: #0f3b2c;
-        }
-
+        .tab-item i { font-size: 22px; }
+        .tab-item.active { color: #0f3b2c; }
         .top-tabs {
             display: flex;
             gap: 12px;
@@ -91,7 +74,6 @@
             margin-bottom: 18px;
             padding-bottom: 6px;
         }
-
         .top-tab-btn {
             background: none;
             border: none;
@@ -102,11 +84,7 @@
             cursor: pointer;
             position: relative;
         }
-
-        .top-tab-btn.active {
-            color: #0f3b2c;
-        }
-
+        .top-tab-btn.active { color: #0f3b2c; }
         .top-tab-btn.active::after {
             content: '';
             position: absolute;
@@ -117,8 +95,7 @@
             background: #0f3b2c;
             border-radius: 2px;
         }
-
-        .post-card, .event-card, .question-card, .circle-item-card {
+        .post-card, .event-card, .question-card {
             background: white;
             border-radius: 24px;
             padding: 14px;
@@ -126,14 +103,12 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
             border: 1px solid #edf2f7;
         }
-
         .post-header {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 12px;
         }
-
         .avatar {
             width: 44px;
             height: 44px;
@@ -145,7 +120,6 @@
             font-weight: bold;
             color: #0f3b2c;
         }
-
         .post-img {
             width: 100%;
             border-radius: 20px;
@@ -154,17 +128,8 @@
             object-fit: cover;
             background: #eef2f8;
         }
-
-        .user-name {
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .circle-badge {
-            font-size: 11px;
-            color: #5b6e8c;
-        }
-
+        .user-name { font-weight: 700; font-size: 15px; }
+        .circle-badge { font-size: 11px; color: #5b6e8c; }
         .post-stats {
             display: flex;
             gap: 18px;
@@ -172,13 +137,11 @@
             font-size: 13px;
             color: #5b6e8c;
         }
-
         .input-row {
             display: flex;
             gap: 10px;
             margin-top: 10px;
         }
-
         .input-row input {
             flex: 1;
             padding: 10px 14px;
@@ -186,7 +149,6 @@
             border: 1px solid #e2e8f0;
             font-size: 13px;
         }
-
         button {
             background: #0f3b2c;
             color: white;
@@ -196,14 +158,12 @@
             font-weight: 600;
             cursor: pointer;
         }
-
         .join-btn {
             background: transparent;
             border: 1px solid #0f3b2c;
             color: #0f3b2c;
             padding: 6px 16px;
         }
-
         .search-circle {
             background: #f8fafc;
             border-radius: 40px;
@@ -213,7 +173,6 @@
             gap: 10px;
             border: 1px solid #e2edf7;
         }
-
         .circle-item {
             display: flex;
             justify-content: space-between;
@@ -221,7 +180,6 @@
             margin-bottom: 14px;
             padding: 6px 0;
         }
-
         .event-badge {
             background: #fef3c7;
             color: #b45309;
@@ -231,7 +189,13 @@
             display: inline-block;
             margin-bottom: 8px;
         }
-
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf2f7;
+            cursor: pointer;
+        }
         footer {
             font-size: 10px;
             text-align: center;
@@ -257,31 +221,39 @@
 </div>
 
 <script>
-    // ----- MOCK DATA -----
+    // ----- USER DATA -----
     let currentUser = {
         name: "Hamza Ali",
-        points: 1890,
-        trustScore: 842,
+        points: 2110,
+        trustScore: 872,
         circle: "Gulshan Block 5",
-        avatar: "HA"
+        avatar: "HA",
+        email: "hamza@awaaz.com",
+        phone: "+92 3XX 1234567"
     };
 
-    // Community posts with images & events mixed
-    let communityPosts = [
-        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Found a lost puppy near KFC! Anyone recognize? 🐕", image: "https://picsum.photos/id/106/300/180", likes: 24, comments: 5, timestamp: "1h ago", type: "post" },
-        { id: 2, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Our street cleaning drive tomorrow at 8 AM. Join us!", image: "https://picsum.photos/id/13/300/180", likes: 42, comments: 12, timestamp: "3h ago", type: "event" },
-        { id: 3, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Free iftar gathering at community center. Bring a dish to share!", image: "https://picsum.photos/id/30/300/180", likes: 67, comments: 21, timestamp: "yesterday", type: "event" },
-        { id: 4, circle: "Johar Town (followed)", userName: "Bilal A.", avatar: "BA", text: "Beautiful sunset at Racecourse Park 🌅", image: "https://picsum.photos/id/96/300/180", likes: 33, comments: 4, timestamp: "5h ago", type: "post" },
-        { id: 5, circle: "Gulshan Block 5", userName: "Fatima Z.", avatar: "FZ", text: "Yard sale this Saturday! Furniture, books, plants.", image: "https://picsum.photos/id/20/300/180", likes: 18, comments: 7, timestamp: "2h ago", type: "event" }
+    // ----- Community Posts (TEXT-ONLY for "Add post" tab) -----
+    let textOnlyPosts = [
+        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Does anyone know a good electrician? Urgent! Lights flickering since morning.", likes: 8, comments: 3, timestamp: "2h ago" },
+        { id: 2, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Lost my cat near Park Lane. Name: Simba, white with brown patches. Please help!", likes: 15, comments: 6, timestamp: "5h ago" },
+        { id: 3, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Anyone selling a used study table? Budget around 3k.", likes: 4, comments: 2, timestamp: "yesterday" }
+    ];
+
+    // ----- EVENTS & MEDIA posts (with context-matching images) -----
+    let eventsMediaPosts = [
+        { id: 101, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "🐕 FOUND a lost puppy near KFC Gulshan! Very friendly, wearing blue collar. Contact me to claim.", image: "https://picsum.photos/id/169/300/180", likes: 34, comments: 7, timestamp: "1h ago", type: "post" },
+        { id: 102, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Street cleaning drive tomorrow at 8 AM near Y Block. Join us to keep our neighborhood clean!", image: "https://picsum.photos/id/116/300/180", likes: 27, comments: 9, timestamp: "3h ago", type: "event" },
+        { id: 103, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Free iftar gathering at Community Center, 6:30 PM. Bring a dish to share! Everyone welcome.", image: "https://picsum.photos/id/127/300/180", likes: 52, comments: 14, timestamp: "6h ago", type: "event" },
+        { id: 104, circle: "Johar Town (followed)", userName: "Bilal A.", avatar: "BA", text: "Beautiful sunset at Racecourse Park – perfect evening for a walk 🌅", image: "https://picsum.photos/id/96/300/180", likes: 41, comments: 5, timestamp: "yesterday", type: "post" }
     ];
 
     let followedCircles = ["Defence Phase 2", "Johar Town", "Clifton"];
-
+    
     // Meetup data
     let chatList = [
-        { id: 1, name: "Ayesha Siddiqui", avatar: "AS", lastMsg: "Thanks for the help!", time: "10:32", unread: 2 },
-        { id: 2, name: "Bilal Ahmed", avatar: "BA", lastMsg: "See you at 7", time: "09:15", unread: 0 },
-        { id: 3, name: "Dr. Noman", avatar: "DN", lastMsg: "Clinic timings updated", time: "07:50", unread: 1 }
+        { id: 1, name: "Ayesha Siddiqui", avatar: "AS", lastMsg: "Thanks for the recommendation!", time: "10:32", unread: 2 },
+        { id: 2, name: "Bilal Ahmed", avatar: "BA", lastMsg: "See you at the circle meetup", time: "09:15", unread: 0 },
+        { id: 3, name: "Dr. Noman", avatar: "DN", lastMsg: "Clinic timings changed", time: "07:50", unread: 1 }
     ];
     let friendSuggestions = [
         { id: 101, name: "Fatima Zafar", avatar: "FZ", mutualCircle: "Gulshan Block 5" },
@@ -289,17 +261,16 @@
         { id: 103, name: "Mahnoor Ali", avatar: "MA", mutualCircle: "Johar Town" }
     ];
 
-    // Quick get questions
+    // Quick Get questions
     let locationSpecificQuestions = [
         { id: 201, title: "Current petrol price at PSO Anarkali?", location: "Anarkali", askedBy: "Ali", answers: 3, timeAgo: "15 min" },
         { id: 202, title: "Is road open near Kalma Chowk?", location: "Kalma Chowk", askedBy: "Zara", answers: 2, timeAgo: "45 min" },
-        { id: 203, title: "Which pharmacy has augmentin near DHA?", location: "DHA Phase 2", askedBy: "Sarah", answers: 1, timeAgo: "2h" }
+        { id: 203, title: "Which pharmacy has augmentin near DHA Phase 2?", location: "DHA Phase 2", askedBy: "Sarah", answers: 1, timeAgo: "2h" }
     ];
-
     let circleMemberQuestions = [
         { id: 301, circle: "Gulshan Block 5", question: "Any electrician available right now?", askedBy: "Nadia", replies: 4, timeAgo: "1h" },
         { id: 302, circle: "Defence Phase 2 (followed)", question: "Best mandi near Y block?", askedBy: "Hamza", replies: 6, timeAgo: "3h" },
-        { id: 303, circle: "Gulshan Block 5", question: "Gas pressure issue? Anyone else?", askedBy: "Khalid", replies: 2, timeAgo: "30 min" }
+        { id: 303, circle: "Gulshan Block 5", question: "Gas pressure low? Anyone else?", askedBy: "Khalid", replies: 2, timeAgo: "30 min" }
     ];
 
     let notificationsList = [
@@ -309,14 +280,20 @@
         { text: "Sana K. replied to your question about electricity", time: "2h ago" }
     ];
 
-    // ---- Enhanced circles list for join tab (many circles) ----
+    // All circles for join tab
     let allCircles = [
-        "Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8", "PECHS", "Gulistan-e-Jauhar", "North Nazimabad", "Bahria Town Rawalpindi", "Faisalabad Peoples Colony", "Model Town Lahore", "Saddar Rawalpindi", "DHA Karachi Phase 8"
+        "Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8", "PECHS", 
+        "Gulistan-e-Jauhar", "North Nazimabad", "Bahria Town Rawalpindi", "Faisalabad Peoples Colony", 
+        "Model Town Lahore", "Saddar Rawalpindi", "DHA Karachi Phase 8"
     ];
 
-    // ---- Home state management (3 subtabs) ----
-    let homeSubTab = "posts"; // "posts", "joincircle", "eventsmedia"
+    // UI state
+    let homeSubTab = "posts";    // "posts", "joincircle", "eventsmedia"
+    let meetupSubTab = "chats";
+    let quickSubTab = "location";
+    let activeMainTab = "home";
 
+    // ---------- RENDER FUNCTIONS ----------
     function renderHome() {
         let html = `<div class="top-tabs" id="homeTopTabs">
                         <button class="top-tab-btn ${homeSubTab === 'posts' ? 'active' : ''}" data-home-tab="posts">📝 Add post</button>
@@ -325,27 +302,25 @@
                     </div>`;
 
         if (homeSubTab === "posts") {
-            html += `<div style="margin-bottom: 16px;"><button id="createNewPostBtn" style="background:#0f3b2c;"><i class="fas fa-plus-circle"></i> Share photo / update</button></div>`;
-            // show mixed posts (including images)
-            communityPosts.forEach(post => {
+            // TEXT-ONLY posts
+            html += `<div style="margin-bottom: 16px;"><button id="createTextPostBtn" style="background:#0f3b2c;"><i class="fas fa-edit"></i> Write text update</button></div>`;
+            textOnlyPosts.forEach(post => {
                 html += `<div class="post-card">
                             <div class="post-header">
                                 <div class="avatar">${post.avatar}</div>
                                 <div><div class="user-name">${post.userName}</div><div class="circle-badge"><i class="fas fa-circle-nodes"></i> ${post.circle}</div></div>
-                            </div>`;
-                if (post.type === "event") html += `<div class="event-badge"><i class="fas fa-calendar-alt"></i> Event</div>`;
-                html += `<div class="post-text">${post.text}</div>`;
-                if (post.image) html += `<img src="${post.image}" class="post-img" alt="post media">`;
-                html += `<div class="post-stats">
-                            <span><i class="far fa-heart"></i> ${post.likes}</span>
-                            <span><i class="far fa-comment"></i> ${post.comments}</span>
-                            <span>${post.timestamp}</span>
-                        </div>
-                        <div class="input-row">
-                            <input type="text" placeholder="Write a comment..." id="commentInput-${post.id}">
-                            <button class="reply-post-btn" data-id="${post.id}">Reply</button>
-                        </div>
-                    </div>`;
+                            </div>
+                            <div class="post-text">${post.text}</div>
+                            <div class="post-stats">
+                                <span><i class="far fa-heart"></i> ${post.likes}</span>
+                                <span><i class="far fa-comment"></i> ${post.comments}</span>
+                                <span>${post.timestamp}</span>
+                            </div>
+                            <div class="input-row">
+                                <input type="text" placeholder="Write a comment..." id="commentText-${post.id}">
+                                <button class="reply-text-post" data-id="${post.id}">Reply</button>
+                            </div>
+                        </div>`;
             });
         } 
         else if (homeSubTab === "joincircle") {
@@ -356,7 +331,6 @@
                     <div id="circleSearchResults"></div>
                     <h4><i class="fas fa-star"></i> Popular circles near you</h4>
                     <div id="allCirclesList"></div>`;
-            // will populate after render
             setTimeout(() => {
                 const container = document.getElementById("allCirclesList");
                 if (container) {
@@ -374,14 +348,12 @@
                 document.querySelectorAll(".join-circle-btn").forEach(btn => {
                     btn.addEventListener("click", (e) => {
                         const circleName = btn.getAttribute("data-circle");
-                        alert(`🎉 You requested to join "${circleName}" circle! (Demo: will appear in feed after approval)`);
+                        alert(`🎉 You requested to join "${circleName}" circle! (Demo)`);
                     });
                 });
             }, 10);
-        } 
+        }
         else if (homeSubTab === "eventsmedia") {
-            // show events & media only (filter events and posts with images)
-            const eventsMediaPosts = communityPosts.filter(p => p.type === "event" || (p.image && p.type !== "event"));
             if (eventsMediaPosts.length === 0) html += `<p>No events or media yet. Be the first to share!</p>`;
             eventsMediaPosts.forEach(post => {
                 html += `<div class="post-card">
@@ -389,19 +361,17 @@
                                 <div class="avatar">${post.avatar}</div>
                                 <div><div class="user-name">${post.userName}</div><div class="circle-badge">${post.circle}</div></div>
                             </div>`;
-                if (post.type === "event") html += `<div class="event-badge"><i class="fas fa-calendar-check"></i> Upcoming event</div>`;
+                if (post.type === "event") html += `<div class="event-badge"><i class="fas fa-calendar-check"></i> Event</div>`;
                 html += `<div class="post-text">${post.text}</div>`;
-                if (post.image) html += `<img src="${post.image}" class="post-img" alt="media">`;
-                html += `<div class="post-stats"><span><i class="far fa-heart"></i> ${post.likes}</span><span>${post.timestamp}</span></div>
-                        <div class="input-row"><input placeholder="React or comment..." id="eventComment-${post.id}"><button class="event-reply" data-id="${post.id}">❤️</button></div>
+                if (post.image) html += `<img src="${post.image}" class="post-img" alt="post content">`;
+                html += `<div class="post-stats"><span><i class="far fa-heart"></i> ${post.likes}</span><span><i class="far fa-comment"></i> ${post.comments}</span><span>${post.timestamp}</span></div>
+                        <div class="input-row"><input placeholder="React or comment..." id="eventComment-${post.id}"><button class="event-reply" data-id="${post.id}">❤️ Like</button></div>
                     </div>`;
             });
         }
         return html;
     }
 
-    // Meetup sub tabs
-    let meetupSubTab = "chats";
     function renderMeetup() {
         let html = `<div class="top-tabs" id="meetupTopTabs">
                         <button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button>
@@ -425,8 +395,6 @@
         return html;
     }
 
-    // Quick get tabs
-    let quickSubTab = "location";
     function renderQuickGet() {
         let html = `<div class="top-tabs" id="quickTopTabs">
                         <button class="top-tab-btn ${quickSubTab === 'location' ? 'active' : ''}" data-quick-tab="location">📍 Location Q</button>
@@ -470,15 +438,23 @@
     }
 
     function renderProfile() {
-        return `<div class="post-card" style="text-align:center;">
-                    <div class="avatar" style="width:80px; height:80px; margin: 0 auto 12px; font-size:28px;">${currentUser.avatar}</div>
-                    <h2>${currentUser.name}</h2>
-                    <div style="background:#e3f5ec; border-radius:30px; display:inline-block; padding:6px 16px;"><i class="fas fa-coins"></i> ${currentUser.points} points</div>
-                    <p>⭐ Trust Score: ${currentUser.trustScore}</p>
-                    <p><i class="fas fa-circle-nodes"></i> Home Circle: ${currentUser.circle}</p>
+        return `<div class="post-card">
+                    <div style="text-align:center;">
+                        <div class="avatar" style="width:80px; height:80px; margin: 0 auto 12px; font-size:28px;">${currentUser.avatar}</div>
+                        <h2>${currentUser.name}</h2>
+                        <div style="background:#e3f5ec; border-radius:30px; display:inline-block; padding:6px 16px;"><i class="fas fa-coins"></i> ${currentUser.points} points</div>
+                        <p>⭐ Trust Score: ${currentUser.trustScore}</p>
+                        <p><i class="fas fa-circle-nodes"></i> Home Circle: ${currentUser.circle}</p>
+                    </div>
                     <hr style="margin:16px 0;">
-                    <button id="premiumBtn" style="background:#c2410c;">✨ Upgrade Premium (Rs 1000/mo)</button>
-                    <div style="margin-top:16px; text-align:left;">
+                    <h4><i class="fas fa-sliders-h"></i> Settings</h4>
+                    <div class="settings-item" id="editProfileBtn"><span><i class="fas fa-user-edit"></i> Edit Profile</span> <i class="fas fa-chevron-right"></i></div>
+                    <div class="settings-item" id="privacyBtn"><span><i class="fas fa-lock"></i> Privacy & Security</span> <i class="fas fa-chevron-right"></i></div>
+                    <div class="settings-item" id="notifPrefBtn"><span><i class="fas fa-bell"></i> Notification Preferences</span> <i class="fas fa-chevron-right"></i></div>
+                    <div class="settings-item" id="languageBtn"><span><i class="fas fa-language"></i> Language (Urdu/English)</span> <i class="fas fa-chevron-right"></i></div>
+                    <hr style="margin:16px 0;">
+                    <button id="premiumBtn" style="background:#c2410c; width:100%;">✨ Upgrade Premium (Rs 1000/mo)</button>
+                    <div style="margin-top:16px;">
                         <h4>Your impact</h4>
                         <p>✅ Answers given: 63</p>
                         <p>🏆 Longest streak: 21 days</p>
@@ -487,9 +463,6 @@
                     <footer>🇵🇰 Apki awaz hai kisi ka sahara</footer>
                 </div>`;
     }
-
-    // main render switch
-    let activeMainTab = "home";
 
     function renderAll() {
         const container = document.getElementById("mainContent");
@@ -506,21 +479,18 @@
     }
 
     function attachSubTabEvents() {
-        // Home sub tabs
-        const homePostsBtn = document.querySelector("[data-home-tab='posts']");
-        const homeCircleBtn = document.querySelector("[data-home-tab='joincircle']");
-        const homeEventsBtn = document.querySelector("[data-home-tab='eventsmedia']");
-        if (homePostsBtn) homePostsBtn.onclick = () => { homeSubTab = "posts"; renderAll(); };
-        if (homeCircleBtn) homeCircleBtn.onclick = () => { homeSubTab = "joincircle"; renderAll(); };
-        if (homeEventsBtn) homeEventsBtn.onclick = () => { homeSubTab = "eventsmedia"; renderAll(); };
+        const homePosts = document.querySelector("[data-home-tab='posts']");
+        const homeCircle = document.querySelector("[data-home-tab='joincircle']");
+        const homeEvents = document.querySelector("[data-home-tab='eventsmedia']");
+        if (homePosts) homePosts.onclick = () => { homeSubTab = "posts"; renderAll(); };
+        if (homeCircle) homeCircle.onclick = () => { homeSubTab = "joincircle"; renderAll(); };
+        if (homeEvents) homeEvents.onclick = () => { homeSubTab = "eventsmedia"; renderAll(); };
 
-        // Meetup sub tabs
-        const meetupChats = document.querySelector("[data-meetup-tab='chats']");
-        const meetupFriends = document.querySelector("[data-meetup-tab='friends']");
-        if (meetupChats) meetupChats.onclick = () => { meetupSubTab = "chats"; renderAll(); };
-        if (meetupFriends) meetupFriends.onclick = () => { meetupSubTab = "friends"; renderAll(); };
+        const meetChats = document.querySelector("[data-meetup-tab='chats']");
+        const meetFriends = document.querySelector("[data-meetup-tab='friends']");
+        if (meetChats) meetChats.onclick = () => { meetupSubTab = "chats"; renderAll(); };
+        if (meetFriends) meetFriends.onclick = () => { meetupSubTab = "friends"; renderAll(); };
 
-        // Quick sub tabs
         const qLoc = document.querySelector("[data-quick-tab='location']");
         const qCircle = document.querySelector("[data-quick-tab='circle']");
         const qAsk = document.querySelector("[data-quick-tab='ask']");
@@ -530,46 +500,44 @@
     }
 
     function attachActionButtons() {
-        // create new post (image/text)
-        const createBtn = document.getElementById("createNewPostBtn");
-        if (createBtn) {
-            createBtn.onclick = () => {
-                let postText = prompt("Share an update, event, or photo caption:");
-                if (postText) {
-                    let hasImage = confirm("Add a sample image? (demo)");
-                    let newPost = {
+        // Create text-only post
+        const createTextBtn = document.getElementById("createTextPostBtn");
+        if (createTextBtn) {
+            createTextBtn.onclick = () => {
+                let postText = prompt("Write your text update (no images):");
+                if (postText && postText.trim()) {
+                    const newPost = {
                         id: Date.now(),
                         circle: currentUser.circle,
                         userName: currentUser.name,
                         avatar: currentUser.avatar,
                         text: postText,
-                        image: hasImage ? "https://picsum.photos/id/26/300/180" : null,
                         likes: 0,
                         comments: 0,
-                        timestamp: "just now",
-                        type: "post"
+                        timestamp: "just now"
                     };
-                    communityPosts.unshift(newPost);
+                    textOnlyPosts.unshift(newPost);
                     renderAll();
                 }
             };
         }
-        // reply buttons for posts
-        document.querySelectorAll(".reply-post-btn").forEach(btn => {
+        // Reply to text posts
+        document.querySelectorAll(".reply-text-post").forEach(btn => {
             btn.onclick = (e) => {
                 const id = btn.getAttribute("data-id");
-                alert(`Comment added on post ${id} (demo). +1 interaction`);
+                alert(`Comment added to post ${id} (demo).`);
             };
         });
+        // Reply to location / circle questions
         document.querySelectorAll(".replyLocBtn").forEach(btn => {
-            btn.onclick = () => alert("Mock: Answer submitted! Points will be credited after rating.");
+            btn.onclick = () => alert("Mock: Answer submitted! Points after rating.");
         });
         document.querySelectorAll(".replyCircleBtn").forEach(btn => {
             btn.onclick = () => alert("Reply added to circle question.");
         });
-        const submitQuestion = document.getElementById("submitQuestionBtn");
-        if (submitQuestion) {
-            submitQuestion.onclick = () => {
+        const submitQ = document.getElementById("submitQuestionBtn");
+        if (submitQ) {
+            submitQ.onclick = () => {
                 const qText = document.getElementById("newQuestionText")?.value;
                 if (!qText) return alert("Please write a question.");
                 alert(`Question posted: "${qText}". (Free today)`);
@@ -577,19 +545,31 @@
                 if(document.getElementById("questionLocation")) document.getElementById("questionLocation").value = "";
             };
         }
+        // Friend requests
         document.querySelectorAll(".sendFriendReqBtn").forEach(btn => {
             btn.onclick = (e) => alert(`Friend request sent to ${btn.getAttribute("data-name")}`);
         });
+        // Premium
         const premium = document.getElementById("premiumBtn");
         if (premium) premium.onclick = () => alert("Premium subscription: unlimited questions, no ads, bonus points.");
+        // Event media like
         document.querySelectorAll(".event-reply").forEach(btn => {
-            btn.onclick = () => alert("You reacted to this event! 👍");
+            btn.onclick = () => alert("You liked this post!");
         });
+        // Profile settings handlers
+        const editProfile = document.getElementById("editProfileBtn");
+        const privacy = document.getElementById("privacyBtn");
+        const notifPref = document.getElementById("notifPrefBtn");
+        const lang = document.getElementById("languageBtn");
+        if (editProfile) editProfile.onclick = () => alert("Edit Profile (demo): change name, photo, etc.");
+        if (privacy) privacy.onclick = () => alert("Privacy & Security: manage data, block list.");
+        if (notifPref) notifPref.onclick = () => alert("Choose which notifications to receive.");
+        if (lang) lang.onclick = () => alert("Switch between Urdu and English (demo).");
     }
 
-    // bottom tab listeners
+    // Bottom tab listeners
     document.querySelectorAll(".tab-item").forEach(tab => {
-        tab.addEventListener("click", (e) => {
+        tab.addEventListener("click", () => {
             const tabName = tab.getAttribute("data-tab");
             if (tabName) {
                 activeMainTab = tabName;
@@ -600,7 +580,7 @@
         });
     });
 
-    // start
+    // Initialize
     document.querySelector(".tab-item[data-tab='home']").classList.add("active");
     renderAll();
 </script>

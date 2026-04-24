@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>AwaazNexus – Community & Marketplace</title>
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -20,9 +18,9 @@
             padding: 16px;
         }
         .phone {
-            max-width: 400px;
+            max-width: 380px;
             width: 100%;
-            height: 740px;
+            height: 700px;
             background: white;
             border-radius: 40px;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
@@ -38,7 +36,6 @@
             display: flex;
             justify-content: space-between;
             background: white;
-            color: #1e293b;
         }
         .main-content {
             flex: 1;
@@ -46,13 +43,13 @@
             padding: 16px;
             scroll-behavior: smooth;
         }
+        /* 5 tabs fixed in one line */
         .bottom-tabs {
             display: flex;
             justify-content: space-around;
             background: white;
             border-top: 1px solid #e9eef3;
-            padding: 6px 8px 12px;
-            flex-wrap: wrap;
+            padding: 8px 8px 12px;
         }
         .tab-item {
             display: flex;
@@ -65,7 +62,8 @@
             border: none;
             cursor: pointer;
             font-weight: 500;
-            min-width: 55px;
+            flex: 1;
+            text-align: center;
         }
         .tab-item i { font-size: 20px; }
         .tab-item.active { color: #0f3b2c; }
@@ -97,13 +95,13 @@
             background: #0f3b2c;
             border-radius: 2px;
         }
-        .post-card, .event-card, .question-card, .product-card, .order-card {
+        .post-card, .product-card, .order-card {
             background: white;
             border-radius: 24px;
             padding: 14px;
             margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
             border: 1px solid #edf2f7;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .post-header {
             display: flex;
@@ -126,7 +124,7 @@
             width: 100%;
             border-radius: 20px;
             margin: 10px 0;
-            max-height: 200px;
+            max-height: 180px;
             object-fit: cover;
         }
         .ad-badge {
@@ -135,17 +133,41 @@
             font-size: 11px;
             padding: 2px 8px;
             border-radius: 20px;
-            display: inline-block;
             margin-left: 8px;
         }
-        .user-name { font-weight: 700; font-size: 15px; }
-        .circle-badge { font-size: 11px; color: #5b6e8c; }
-        .post-stats {
-            display: flex;
-            gap: 18px;
-            margin-top: 10px;
-            font-size: 13px;
-            color: #5b6e8c;
+        .event-badge {
+            background: #fef3c7;
+            color: #b45309;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .product-price { font-weight: 700; color: #0f3b2c; font-size: 16px; }
+        .order-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-pending { background: #fef3c7; color: #b45309; }
+        .status-shipped { background: #dbeafe; color: #1e40af; }
+        .status-delivered { background: #d1fae5; color: #065f46; }
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        button {
+            background: #0f3b2c;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 8px 16px;
+            font-weight: 600;
+            cursor: pointer;
         }
         .input-row {
             display: flex;
@@ -157,22 +179,16 @@
             padding: 10px 14px;
             border-radius: 40px;
             border: 1px solid #e2e8f0;
-            font-size: 13px;
         }
-        button {
-            background: #0f3b2c;
-            color: white;
-            border: none;
-            border-radius: 40px;
-            padding: 8px 16px;
-            font-weight: 600;
-            cursor: pointer;
+        .circle-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 14px;
         }
         .join-btn {
             background: transparent;
             border: 1px solid #0f3b2c;
             color: #0f3b2c;
-            padding: 6px 16px;
         }
         .search-circle {
             background: #f8fafc;
@@ -183,36 +199,6 @@
             gap: 10px;
             border: 1px solid #e2edf7;
         }
-        .circle-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-        .event-badge {
-            background: #fef3c7;
-            color: #b45309;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-        .product-price {
-            font-weight: 700;
-            color: #0f3b2c;
-            font-size: 16px;
-        }
-        .order-status {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .status-pending { background: #fef3c7; color: #b45309; }
-        .status-shipped { background: #dbeafe; color: #1e40af; }
-        .status-delivered { background: #d1fae5; color: #065f46; }
         .settings-item {
             display: flex;
             justify-content: space-between;
@@ -220,257 +206,156 @@
             border-bottom: 1px solid #edf2f7;
             cursor: pointer;
         }
-        footer {
+        .notification-bell {
+            position: relative;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e53e3e;
+            color: white;
+            border-radius: 50%;
             font-size: 10px;
-            text-align: center;
-            margin-top: 20px;
-            color: #94a3b8;
+            padding: 2px 5px;
         }
-        .marketplace-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+        footer { font-size: 10px; text-align: center; margin-top: 20px; color: #94a3b8; }
     </style>
 </head>
 <body>
 <div class="phone">
-    <div class="status-bar">
-        <span>9:41</span>
-        <span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span>
-    </div>
+    <div class="status-bar"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span></div>
     <div class="main-content" id="mainContent"></div>
-    <div class="bottom-tabs" id="bottomTabs">
+    <div class="bottom-tabs">
         <button class="tab-item" data-tab="home"><i class="fas fa-home"></i><span>Home</span></button>
         <button class="tab-item" data-tab="meetup"><i class="fas fa-comments"></i><span>Meetup</span></button>
         <button class="tab-item" data-tab="quickget"><i class="fas fa-bolt"></i><span>Quick Get</span></button>
         <button class="tab-item" data-tab="marketplace"><i class="fas fa-store"></i><span>Market</span></button>
-        <button class="tab-item" data-tab="notifications"><i class="fas fa-bell"></i><span>Notify</span></button>
         <button class="tab-item" data-tab="profile"><i class="fas fa-user"></i><span>Profile</span></button>
     </div>
 </div>
 
 <script>
-    // ----------------------------- MOCK DATA ----------------------------------
-    let currentUser = {
-        name: "Hamza Ali",
-        points: 2450,
-        trustScore: 892,
-        circle: "Gulshan Block 5",
-        avatar: "HA",
-        email: "hamza@awaaz.com",
-        phone: "+92 3XX 1234567"
-    };
-
-    // Text-only posts (Add post tab)
+    // ---------- MOCK DATA ----------
+    let currentUser = { name: "Hamza Ali", points: 2450, trustScore: 892, circle: "Gulshan Block 5", avatar: "HA" };
     let textOnlyPosts = [
-        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Does anyone know a good electrician? Urgent! Lights flickering.", likes: 8, comments: 3, timestamp: "2h ago" },
-        { id: 2, circle: "Defence Phase 2 (followed)", userName: "Omar R.", avatar: "OR", text: "Lost my cat near Park Lane. Simba, white with brown patches.", likes: 15, comments: 6, timestamp: "5h ago" }
+        { id: 1, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "Does anyone know a good electrician? Urgent!", likes: 8, comments: 3, timestamp: "2h ago" },
+        { id: 2, circle: "Defence Phase 2", userName: "Omar R.", avatar: "OR", text: "Lost my cat near Park Lane. Simba, white & brown.", likes: 15, comments: 6, timestamp: "5h ago" }
     ];
-
-    // Events & Media posts (with matching images)
     let eventsMediaPosts = [
-        { id: 101, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "🐕 FOUND a lost puppy near KFC Gulshan! Blue collar.", image: "https://picsum.photos/id/169/300/180", likes: 34, comments: 7, timestamp: "1h ago", type: "post" },
-        { id: 102, circle: "Defence Phase 2", userName: "Omar R.", avatar: "OR", text: "Street cleaning drive tomorrow 8 AM at Y Block. Join!", image: "https://picsum.photos/id/116/300/180", likes: 27, comments: 9, timestamp: "3h ago", type: "event" },
-        { id: 103, circle: "Gulshan Block 5", userName: "Zainab T.", avatar: "ZT", text: "Free iftar gathering at Community Center, 6:30 PM.", image: "https://picsum.photos/id/127/300/180", likes: 52, comments: 14, timestamp: "6h ago", type: "event" }
+        { id: 101, circle: "Gulshan Block 5", userName: "Sana K.", avatar: "SK", text: "🐕 Found a lost puppy near KFC! Blue collar.", image: "https://picsum.photos/id/169/300/180", likes: 34, comments: 7, timestamp: "1h ago", type: "post" },
+        { id: 102, circle: "Defence Phase 2", userName: "Omar R.", avatar: "OR", text: "Street cleaning drive tomorrow 8 AM at Y Block.", image: "https://picsum.photos/id/116/300/180", likes: 27, comments: 9, timestamp: "3h ago", type: "event" }
     ];
-
-    // ADS for Home tab (sponsored content)
     let adsList = [
-        { id: "ad1", business: "Khan Electronics", text: "🔌 20% off on all inverters & stabilizers! Free installation. Call 0300 1234567", cta: "Shop Now", image: "https://picsum.photos/id/0/300/100" },
-        { id: "ad2", business: "FreshMart Grocery", text: "🥬 Fresh vegetables delivered to your door. Use code Awaaz10 for 10% off.", cta: "Order", image: "https://picsum.photos/id/13/300/100" },
-        { id: "ad3", business: "Dr. Wellness Clinic", text: "🏥 Free checkup camp this Sunday at Gulshan Park. BP & sugar test.", cta: "Book Slot", image: "https://picsum.photos/id/48/300/100" }
+        { id: "ad1", business: "Khan Electronics", text: "20% off on inverters! Free installation.", cta: "Shop Now", image: "https://picsum.photos/id/0/300/100" },
+        { id: "ad2", business: "FreshMart Grocery", text: "Fresh veg delivered. Use code Awaaz10.", cta: "Order", image: "https://picsum.photos/id/13/300/100" }
     ];
-
-    // Marketplace data
     let products = [
         { id: 1, name: "Organic Basmati Rice", price: 450, business: "Kissan Store", image: "https://picsum.photos/id/127/150/150", unit: "5kg" },
-        { id: 2, name: "Handmade Leather Wallet", price: 899, business: "Artisan Leather", image: "https://picsum.photos/id/20/150/150" },
-        { id: 3, name: "Electric Kettle 1.5L", price: 2450, business: "HomeAppliances", image: "https://picsum.photos/id/26/150/150" },
-        { id: 4, name: "Kids Story Book Set", price: 600, business: "Readers Hub", image: "https://picsum.photos/id/24/150/150" }
+        { id: 2, name: "Handmade Wallet", price: 899, business: "Artisan Leather", image: "https://picsum.photos/id/20/150/150" },
+        { id: 3, name: "Electric Kettle", price: 2450, business: "HomeAppliances", image: "https://picsum.photos/id/26/150/150" }
     ];
-
     let orders = [
         { id: 101, productName: "Organic Basmati Rice", quantity: 2, total: 900, status: "delivered", date: "2025-03-20" },
-        { id: 102, productName: "Handmade Leather Wallet", quantity: 1, total: 899, status: "shipped", date: "2025-04-01" }
-    ];
-
-    // Meetup / chat / question mock data (shortened for brevity)
-    let chatList = [
-        { id: 1, name: "Ayesha Siddiqui", avatar: "AS", lastMsg: "Thanks for the help!", time: "10:32", unread: 2 },
-        { id: 2, name: "Bilal Ahmed", avatar: "BA", lastMsg: "See you at meetup", time: "09:15", unread: 0 }
-    ];
-    let friendSuggestions = [
-        { id: 101, name: "Fatima Zafar", avatar: "FZ", mutualCircle: "Gulshan Block 5" },
-        { id: 102, name: "Rizwan Khan", avatar: "RK", mutualCircle: "Defence Phase 2" }
-    ];
-    let locationSpecificQuestions = [
-        { id: 201, title: "Current petrol price at PSO Anarkali?", location: "Anarkali", askedBy: "Ali", answers: 3, timeAgo: "15 min" },
-        { id: 202, title: "Is road open near Kalma Chowk?", location: "Kalma Chowk", askedBy: "Zara", answers: 2, timeAgo: "45 min" }
-    ];
-    let circleMemberQuestions = [
-        { id: 301, circle: "Gulshan Block 5", question: "Any electrician available?", askedBy: "Nadia", replies: 4, timeAgo: "1h" }
+        { id: 102, productName: "Handmade Wallet", quantity: 1, total: 899, status: "shipped", date: "2025-04-01" }
     ];
     let notificationsList = [
         { text: "Your answer was rated 5★! +24 points", time: "10 min ago" },
         { text: "New question in Gulshan Block 5", time: "1h ago" }
     ];
-
-    let allCircles = ["Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8", "PECHS"];
+    let allCircles = ["Gulshan Block 5", "Defence Phase 2", "Johar Town", "Clifton Block 8"];
 
     // UI state
-    let homeSubTab = "posts";    // posts / joincircle / eventsmedia
+    let homeSubTab = "posts";
+    let marketplaceSubTab = "products";
+    let activeMainTab = "home";
     let meetupSubTab = "chats";
     let quickSubTab = "location";
-    let marketplaceSubTab = "products";   // products or orders
-    let activeMainTab = "home";
 
-    // Helper: add ad cards into feed (for home posts feed & events feed)
-    function injectAdsIntoFeed(contentHtml, feedType) {
-        // Insert ads after first few posts
-        if (feedType === 'posts') {
-            // Insert ad1 after first post, ad2 after second
-            let postsDiv = contentHtml;
-            let ad1Html = `<div class="post-card" style="background:#fef9e3; border-left: 4px solid #f59e0b;">
-                            <div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div>
-                            <img src="${adsList[0].image}" class="post-img" style="max-height:120px;">
-                            <div class="post-text"><strong>${adsList[0].business}</strong><br>${adsList[0].text}</div>
-                            <button style="background:#f59e0b; margin-top:8px;">${adsList[0].cta}</button>
-                        </div>`;
-            let ad2Html = `<div class="post-card" style="background:#f0f9ff; border-left: 4px solid #3b82f6;">
-                            <div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div>
-                            <img src="${adsList[1].image}" class="post-img" style="max-height:120px;">
-                            <div class="post-text"><strong>${adsList[1].business}</strong><br>${adsList[1].text}</div>
-                            <button style="background:#3b82f6; margin-top:8px;">${adsList[1].cta}</button>
-                        </div>`;
-            // Split after first post
-            let parts = postsDiv.split('</div>');
-            if (parts.length > 2) {
-                return parts.slice(0,2).join('</div>') + ad1Html + parts.slice(2).join('</div>').replace(/(<div class="post-card")/, ad2Html + '$1');
-            }
-            return postsDiv + ad1Html + ad2Html;
-        } else if (feedType === 'events') {
-            // one ad in events feed
-            let adEvent = `<div class="post-card" style="background:#f3e8ff; border-left: 4px solid #a855f7;">
-                            <div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div>
-                            <img src="${adsList[2].image}" class="post-img">
-                            <div class="post-text"><strong>${adsList[2].business}</strong><br>${adsList[2].text}</div>
-                            <button style="background:#a855f7;">${adsList[2].cta}</button>
-                        </div>`;
-            return contentHtml + adEvent;
+    // Helper: inject two ads into feed
+    function injectAds(content, type) {
+        if (type === 'posts') {
+            let ad1 = `<div class="post-card" style="background:#fef9e3; border-left:4px solid #f59e0b;"><div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div><img src="${adsList[0].image}" class="post-img"><div class="post-text"><strong>${adsList[0].business}</strong><br>${adsList[0].text}</div><button style="background:#f59e0b;">${adsList[0].cta}</button></div>`;
+            let ad2 = `<div class="post-card" style="background:#f0f9ff; border-left:4px solid #3b82f6;"><div class="post-header"><div class="avatar"><i class="fas fa-ad"></i></div><div><span class="user-name">Sponsored</span><span class="ad-badge">Ad</span></div></div><img src="${adsList[1].image}" class="post-img"><div class="post-text"><strong>${adsList[1].business}</strong><br>${adsList[1].text}</div><button style="background:#3b82f6;">${adsList[1].cta}</button></div>`;
+            let parts = content.split('</div>');
+            if (parts.length > 2) return parts.slice(0,2).join('</div>') + ad1 + parts.slice(2).join('</div>').replace(/(<div class="post-card")/, ad2 + '$1');
+            return content + ad1 + ad2;
         }
-        return contentHtml;
+        return content;
     }
 
-    // RENDER FUNCTIONS
     function renderHome() {
-        let html = `<div class="top-tabs" id="homeTopTabs">
+        let html = `<div class="top-tabs">
                         <button class="top-tab-btn ${homeSubTab === 'posts' ? 'active' : ''}" data-home-tab="posts">📝 Add post</button>
                         <button class="top-tab-btn ${homeSubTab === 'joincircle' ? 'active' : ''}" data-home-tab="joincircle">➕ Join circle</button>
                         <button class="top-tab-btn ${homeSubTab === 'eventsmedia' ? 'active' : ''}" data-home-tab="eventsmedia">🎉 Events & Media</button>
                     </div>`;
         if (homeSubTab === "posts") {
-            html += `<div style="margin-bottom: 16px;"><button id="createTextPostBtn"><i class="fas fa-edit"></i> Write text update</button></div>`;
+            html += `<button id="createTextPostBtn" style="margin-bottom:16px;"><i class="fas fa-edit"></i> Write text update</button>`;
             let postsHtml = '';
-            textOnlyPosts.forEach(post => {
-                postsHtml += `<div class="post-card">
-                                <div class="post-header"><div class="avatar">${post.avatar}</div><div><div class="user-name">${post.userName}</div><div class="circle-badge">${post.circle}</div></div></div>
-                                <div class="post-text">${post.text}</div>
-                                <div class="post-stats"><span><i class="far fa-heart"></i> ${post.likes}</span><span><i class="far fa-comment"></i> ${post.comments}</span><span>${post.timestamp}</span></div>
-                                <div class="input-row"><input placeholder="Write a comment..." id="comment-${post.id}"><button class="reply-post" data-id="${post.id}">Reply</button></div>
-                            </div>`;
+            textOnlyPosts.forEach(p => {
+                postsHtml += `<div class="post-card"><div class="post-header"><div class="avatar">${p.avatar}</div><div><div class="user-name">${p.userName}</div><div class="circle-badge">${p.circle}</div></div></div><div class="post-text">${p.text}</div><div class="post-stats"><span><i class="far fa-heart"></i> ${p.likes}</span><span><i class="far fa-comment"></i> ${p.comments}</span><span>${p.timestamp}</span></div><div class="input-row"><input placeholder="Write a comment..."><button>Reply</button></div></div>`;
             });
-            html += injectAdsIntoFeed(postsHtml, 'posts');
-        } 
-        else if (homeSubTab === "joincircle") {
-            html += `<div class="search-circle"><i class="fas fa-search"></i><input type="text" id="circleSearchInput" placeholder="Search circle..."></div>
-                    <div id="circleSearchResults"></div><h4>Popular circles</h4><div id="allCirclesList"></div>`;
+            html += injectAds(postsHtml, 'posts');
+        } else if (homeSubTab === "joincircle") {
+            html += `<div class="search-circle"><i class="fas fa-search"></i><input id="circleSearch" placeholder="Search circle..."></div><div id="circleList"></div>`;
             setTimeout(() => {
-                const container = document.getElementById("allCirclesList");
-                if(container) container.innerHTML = allCircles.map(c => `<div class="circle-item"><span><i class="fas fa-map-marker-alt"></i> ${c}</span><button class="join-circle-btn" data-circle="${c}">Join</button></div>`).join('');
-                const search = document.getElementById("circleSearchInput");
-                if(search) search.addEventListener("input", (e) => {
-                    const term = e.target.value.toLowerCase();
-                    const filtered = allCircles.filter(c => c.toLowerCase().includes(term));
-                    document.getElementById("circleSearchResults").innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle-btn" data-circle="${c}">Join</button></div>`).join('');
+                const container = document.getElementById("circleList");
+                if(container) container.innerHTML = allCircles.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle" data-circle="${c}">Join</button></div>`).join('');
+                document.querySelectorAll(".join-circle").forEach(btn => btn.onclick = () => alert(`Joined ${btn.dataset.circle}`));
+                document.getElementById("circleSearch")?.addEventListener("input", (e) => {
+                    let term = e.target.value.toLowerCase();
+                    let filtered = allCircles.filter(c => c.toLowerCase().includes(term));
+                    document.getElementById("circleList").innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle" data-circle="${c}">Join</button></div>`).join('');
                 });
-                document.querySelectorAll(".join-circle-btn").forEach(btn => btn.addEventListener("click", (e) => alert(`Joined ${btn.getAttribute("data-circle")} (demo)`)));
             }, 10);
-        }
-        else if (homeSubTab === "eventsmedia") {
+        } else if (homeSubTab === "eventsmedia") {
             let eventsHtml = '';
-            eventsMediaPosts.forEach(post => {
-                eventsHtml += `<div class="post-card">
-                                <div class="post-header"><div class="avatar">${post.avatar}</div><div><div class="user-name">${post.userName}</div><div class="circle-badge">${post.circle}</div></div></div>
-                                ${post.type === 'event' ? '<div class="event-badge">Event</div>' : ''}
-                                <div class="post-text">${post.text}</div><img src="${post.image}" class="post-img">
-                                <div class="post-stats"><span><i class="far fa-heart"></i> ${post.likes}</span><span>${post.timestamp}</span></div>
-                            </div>`;
+            eventsMediaPosts.forEach(e => {
+                eventsHtml += `<div class="post-card"><div class="post-header"><div class="avatar">${e.avatar}</div><div><div class="user-name">${e.userName}</div><div class="circle-badge">${e.circle}</div></div></div>${e.type === 'event' ? '<div class="event-badge">Event</div>' : ''}<div class="post-text">${e.text}</div><img src="${e.image}" class="post-img"><div class="post-stats"><span><i class="far fa-heart"></i> ${e.likes}</span><span>${e.timestamp}</span></div></div>`;
             });
-            html += injectAdsIntoFeed(eventsHtml, 'events');
+            html += injectAds(eventsHtml, 'events');
         }
         return html;
     }
 
     function renderMarketplace() {
-        let html = `<div class="top-tabs" id="marketTabs">
-                        <button class="top-tab-btn ${marketplaceSubTab === 'products' ? 'active' : ''}" data-market-tab="products">🛍️ Products</button>
-                        <button class="top-tab-btn ${marketplaceSubTab === 'orders' ? 'active' : ''}" data-market-tab="orders">📦 My Orders</button>
-                    </div>`;
+        let html = `<div class="top-tabs"><button class="top-tab-btn ${marketplaceSubTab === 'products' ? 'active' : ''}" data-market-tab="products">🛍️ Products</button><button class="top-tab-btn ${marketplaceSubTab === 'orders' ? 'active' : ''}" data-market-tab="orders">📦 My Orders</button></div>`;
         if (marketplaceSubTab === "products") {
             html += `<div class="marketplace-grid">`;
             products.forEach(p => {
-                html += `<div class="product-card">
-                            <img src="${p.image}" style="width:100%; border-radius:16px; height:130px; object-fit:cover;">
-                            <h4 style="margin:8px 0 4px">${p.name}</h4>
-                            <div class="product-price">Rs ${p.price}</div>
-                            <div style="font-size:12px; color:#5b6e8c;">${p.business}</div>
-                            <button class="order-product-btn" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" style="margin-top:10px; width:100%;">Order Now</button>
-                        </div>`;
+                html += `<div class="product-card"><img src="${p.image}" style="width:100%; border-radius:16px; height:130px; object-fit:cover;"><h4 style="margin:8px 0 4px">${p.name}</h4><div class="product-price">Rs ${p.price}</div><div style="font-size:12px;">${p.business}</div><button class="order-product" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" style="margin-top:10px; width:100%;">Order</button></div>`;
             });
             html += `</div>`;
         } else {
-            if (orders.length === 0) html += `<p>No orders yet. Start shopping!</p>`;
-            orders.forEach(order => {
-                let statusClass = '';
-                if (order.status === 'pending') statusClass = 'status-pending';
-                else if (order.status === 'shipped') statusClass = 'status-shipped';
-                else statusClass = 'status-delivered';
-                html += `<div class="order-card">
-                            <div><strong>Order #${order.id}</strong> <span class="order-status ${statusClass}">${order.status.toUpperCase()}</span></div>
-                            <div>${order.productName} x ${order.quantity}</div>
-                            <div>Total: Rs ${order.total}</div>
-                            <div style="font-size:12px;">Date: ${order.date}</div>
-                        </div>`;
+            orders.forEach(o => {
+                let statusClass = o.status === 'pending' ? 'status-pending' : (o.status === 'shipped' ? 'status-shipped' : 'status-delivered');
+                html += `<div class="order-card"><div><strong>Order #${o.id}</strong> <span class="order-status ${statusClass}">${o.status.toUpperCase()}</span></div><div>${o.productName} x ${o.quantity}</div><div>Total: Rs ${o.total}</div><div>${o.date}</div></div>`;
             });
         }
         return html;
     }
 
-    // Simplified other tabs (meetup, quickget, notifications, profile) – keep functional
     function renderMeetup() {
         let html = `<div class="top-tabs"><button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button><button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">👥 Find Friend</button></div>`;
-        if (meetupSubTab === "chats") {
-            chatList.forEach(c => html += `<div class="post-card" style="display:flex; justify-content:space-between;"><div style="display:flex; gap:12px;"><div class="avatar">${c.avatar}</div><div><strong>${c.name}</strong><div>${c.lastMsg}</div></div></div><div>${c.unread ? `<span style="background:#0f3b2c; padding:2px 8px; border-radius:20px;">${c.unread}</span>` : c.time}</div></div>`);
-        } else {
-            friendSuggestions.forEach(f => html += `<div class="post-card" style="display:flex; justify-content:space-between;"><div><div class="avatar">${f.avatar}</div><div><strong>${f.name}</strong><div>${f.mutualCircle}</div></div></div><button class="addFriendBtn" data-name="${f.name}">Add</button></div>`);
-        }
+        if (meetupSubTab === "chats") html += `<div class="post-card"><div class="avatar">AS</div><div><strong>Ayesha</strong><div>Thanks!</div></div></div>`;
+        else html += `<div class="post-card"><div>Fatima Zafar (Gulshan)</div><button class="addFriend">Add</button></div>`;
         return html;
     }
+
     function renderQuickGet() {
-        let html = `<div class="top-tabs"><button class="top-tab-btn ${quickSubTab === 'location' ? 'active' : ''}" data-quick-tab="location">📍 Location Q</button><button class="top-tab-btn ${quickSubTab === 'circle' ? 'active' : ''}" data-quick-tab="circle">🏠 Circle Q</button><button class="top-tab-btn ${quickSubTab === 'ask' ? 'active' : ''}" data-quick-tab="ask">❓ Ask</button></div>`;
-        if (quickSubTab === "location") locationSpecificQuestions.forEach(q => html += `<div class="question-card"><strong>${q.title}</strong><div>${q.location} • ${q.timeAgo}</div><div class="input-row"><input placeholder="Answer..."><button>Reply</button></div></div>`);
-        else if (quickSubTab === "circle") circleMemberQuestions.forEach(q => html += `<div class="question-card"><div>${q.circle} • ${q.question}</div><div class="input-row"><input placeholder="Reply..."><button>Reply</button></div></div>`);
-        else html += `<div class="post-card"><textarea id="newQ" rows="2" placeholder="Ask something..."></textarea><button id="askBtn">Ask (free)</button></div>`;
+        let html = `<div class="top-tabs"><button class="top-tab-btn ${quickSubTab === 'location' ? 'active' : ''}" data-quick-tab="location">📍 Location</button><button class="top-tab-btn ${quickSubTab === 'circle' ? 'active' : ''}" data-quick-tab="circle">🏠 Circle</button><button class="top-tab-btn ${quickSubTab === 'ask' ? 'active' : ''}" data-quick-tab="ask">❓ Ask</button></div>`;
+        if (quickSubTab === "location") html += `<div class="post-card"><strong>Petrol price at Anarkali?</strong><div class="input-row"><input><button>Answer</button></div></div>`;
+        else if (quickSubTab === "circle") html += `<div class="post-card">Any electrician available? <button>Reply</button></div>`;
+        else html += `<div class="post-card"><textarea id="newQ" rows="2" placeholder="Ask..."></textarea><button id="askQBtn">Ask (free)</button></div>`;
         return html;
     }
-    function renderNotifications() {
-        let html = `<h3>🔔 Notifications</h3>`;
-        notificationsList.forEach(n => html += `<div class="post-card"><i class="fas fa-bell"></i> ${n.text}<div style="font-size:11px;">${n.time}</div></div>`);
-        return html;
-    }
+
     function renderProfile() {
-        return `<div class="post-card"><div style="text-align:center;"><div class="avatar" style="width:80px; height:80px; margin:0 auto;">${currentUser.avatar}</div><h2>${currentUser.name}</h2><div>⭐ ${currentUser.points} pts | Trust ${currentUser.trustScore}</div></div><hr><div class="settings-item" id="editProfile"><span>Edit Profile</span><i class="fas fa-chevron-right"></i></div><div class="settings-item" id="privacy"><span>Privacy & Security</span><i class="fas fa-chevron-right"></i></div><button id="premiumBtn" style="margin-top:16px;">Upgrade Premium</button><footer>Apki awaz hai kisi ka sahara</footer></div>`;
+        let notificationBadge = notificationsList.length > 0 ? `<span class="badge">${notificationsList.length}</span>` : '';
+        return `<div class="post-card" style="text-align:center;"><div class="avatar" style="margin:0 auto;">${currentUser.avatar}</div><h2>${currentUser.name}</h2><div>⭐ ${currentUser.points} pts | Trust ${currentUser.trustScore}</div><hr><div class="settings-item"><span><i class="fas fa-bell"></i> Notifications ${notificationBadge}</span><i class="fas fa-chevron-right"></i></div><div class="settings-item"><span><i class="fas fa-user-edit"></i> Edit Profile</span><i class="fas fa-chevron-right"></i></div><div class="settings-item"><span><i class="fas fa-lock"></i> Privacy</span><i class="fas fa-chevron-right"></i></div><button id="premiumBtn" style="margin-top:16px;">Upgrade Premium</button><footer>Apki awaz hai kisi ka sahara</footer></div>`;
     }
 
     function renderAll() {
@@ -481,68 +366,13 @@
         else if (activeMainTab === "meetup") content = renderMeetup();
         else if (activeMainTab === "quickget") content = renderQuickGet();
         else if (activeMainTab === "marketplace") content = renderMarketplace();
-        else if (activeMainTab === "notifications") content = renderNotifications();
         else if (activeMainTab === "profile") content = renderProfile();
         container.innerHTML = content;
-        attachSubTabHandlers();
-        attachActionButtons();
+        attachDynamicEvents();
     }
 
-    function attachSubTabHandlers() {
-        // Home tabs
-        document.querySelector("[data-home-tab='posts']")?.addEventListener("click", () => { homeSubTab = "posts"; renderAll(); });
-        document.querySelector("[data-home-tab='joincircle']")?.addEventListener("click", () => { homeSubTab = "joincircle"; renderAll(); });
-        document.querySelector("[data-home-tab='eventsmedia']")?.addEventListener("click", () => { homeSubTab = "eventsmedia"; renderAll(); });
-        document.querySelector("[data-meetup-tab='chats']")?.addEventListener("click", () => { meetupSubTab = "chats"; renderAll(); });
-        document.querySelector("[data-meetup-tab='friends']")?.addEventListener("click", () => { meetupSubTab = "friends"; renderAll(); });
-        document.querySelector("[data-quick-tab='location']")?.addEventListener("click", () => { quickSubTab = "location"; renderAll(); });
-        document.querySelector("[data-quick-tab='circle']")?.addEventListener("click", () => { quickSubTab = "circle"; renderAll(); });
-        document.querySelector("[data-quick-tab='ask']")?.addEventListener("click", () => { quickSubTab = "ask"; renderAll(); });
-        document.querySelector("[data-market-tab='products']")?.addEventListener("click", () => { marketplaceSubTab = "products"; renderAll(); });
-        document.querySelector("[data-market-tab='orders']")?.addEventListener("click", () => { marketplaceSubTab = "orders"; renderAll(); });
-    }
-
-    function attachActionButtons() {
-        document.getElementById("createTextPostBtn")?.addEventListener("click", () => {
-            let txt = prompt("Write your text update:");
-            if (txt) { textOnlyPosts.unshift({ id: Date.now(), circle: currentUser.circle, userName: currentUser.name, avatar: currentUser.avatar, text: txt, likes: 0, comments: 0, timestamp: "just now" }); renderAll(); }
-        });
-        document.querySelectorAll(".reply-post").forEach(btn => btn.addEventListener("click", () => alert("Comment posted (demo)")));
-        document.querySelectorAll(".addFriendBtn").forEach(btn => btn.addEventListener("click", (e) => alert(`Friend request sent to ${btn.getAttribute("data-name")}`)));
-        document.getElementById("askBtn")?.addEventListener("click", () => alert("Question posted (free)"));
-        document.querySelectorAll(".order-product-btn").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                let id = btn.getAttribute("data-id");
-                let name = btn.getAttribute("data-name");
-                let price = parseInt(btn.getAttribute("data-price"));
-                let qty = prompt("Enter quantity:", "1");
-                if (qty && !isNaN(qty)) {
-                    let newOrder = { id: Date.now(), productName: name, quantity: parseInt(qty), total: price * parseInt(qty), status: "pending", date: new Date().toISOString().slice(0,10) };
-                    orders.unshift(newOrder);
-                    alert(`Order placed for ${name}. Status: pending.`);
-                    if (marketplaceSubTab === "products") renderAll();
-                }
-            });
-        });
-        document.getElementById("editProfile")?.addEventListener("click", () => alert("Edit profile (demo)"));
-        document.getElementById("privacy")?.addEventListener("click", () => alert("Privacy settings"));
-        document.getElementById("premiumBtn")?.addEventListener("click", () => alert("Upgrade to premium"));
-    }
-
-    // bottom tab listeners
-    document.querySelectorAll(".tab-item").forEach(tab => {
-        tab.addEventListener("click", () => {
-            const tabName = tab.getAttribute("data-tab");
-            if (tabName) {
-                activeMainTab = tabName;
-                document.querySelectorAll(".tab-item").forEach(t => t.classList.remove("active"));
-                tab.classList.add("active");
-                renderAll();
-            }
-        });
-    });
-    document.querySelector(".tab-item[data-tab='home']").classList.add("active");
-    renderAll();
-</script>
-</body>
-</html>
+    function attachDynamicEvents() {
+        document.querySelectorAll("[data-home-tab]").forEach(btn => btn.addEventListener("click", (e) => { homeSubTab = e.target.dataset.homeTab; renderAll(); }));
+        document.querySelectorAll("[data-market-tab]").forEach(btn => btn.addEventListener("click", (e) => { marketplaceSubTab = e.target.dataset.marketTab; renderAll(); }));
+        document.querySelectorAll("[data-meetup-tab]").forEach(btn => btn.addEventListener("click", (e) => { meetupSubTab = e.target.dataset.meetupTab; renderAll(); }));
+        document.querySelectorAll("[data-quick-tab]").forEach(btn => btn.addEventListener("click", (e) => { quickSubTab = e.target.dataset.qui

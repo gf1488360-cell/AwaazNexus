@@ -461,7 +461,7 @@
             chatList.forEach(chat => {
                 html += `<div class="chat-card" style="display:flex; justify-content:space-between; align-items:center;">
                             <div style="display:flex; gap:12px;"><div class="avatar">${chat.avatar}</div><div><strong>${chat.name}</strong><div style="font-size:13px;">${chat.lastMsg}</div></div></div>
-                            <div>${chat.unread ? `<span style="background:#e9eef3; padding:2px 8px; border-radius:20px;">${chat.unread}</span>` : `<span style="font-size:11px;">${chat.time}</span>`}</div>
+                            <div>${chat.unread ? `<span style="background:#f8f8ff; padding:2px 8px; border-radius:20px;">${chat.unread}</span>` : `<span style="font-size:11px;">${chat.time}</span>`}</div>
                         </div>`;
             });
         } else {

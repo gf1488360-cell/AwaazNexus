@@ -259,7 +259,7 @@
 
 <script>
     // ---------- MOCK DATA (10+ each) ----------
-    let currentUser = { name: "Farid Ibtisam", points: 3150, trustScore: 894, circle: "Gulshan Block 5", avatar: "HA" };
+    let currentUser = { name: "Farid Ibtisam", points: 3150, trustScore: 894, circle: "Gulshan Block 5", avatar: "FI" };
     
     // Text-only posts (10+)
     let textOnlyPosts = [
@@ -411,7 +411,7 @@
                                 <div class="input-row"><input placeholder="Write a comment..."><button class="reply-post">Reply</button></div>
                             </div>`;
             });
-            html += injectAdsBetweenPosts(postsHtml);
+            
         } else if (homeSubTab === "joincircle") {
             html += `<div class="search-circle"><i class="fas fa-search"></i><input id="circleSearch" placeholder="Search circle..."></div><div id="circleList"></div>`;
             setTimeout(() => {

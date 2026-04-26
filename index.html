@@ -354,7 +354,51 @@
     }
 
     function renderMarket() {
-        let html = `<div class="top-tabs">function renderQuickGet() {
+        let html = `<div class="top-tabs">
+                        <button class="top-tab-btn ${marketSubTab === 'products' ? 'active' : ''}" data-market-tab="products">🛍️ Products</button>
+                        <button class="top-tab-btn ${marketSubTab === 'orders' ? 'active' : ''}" data-market-tab="orders">📦 My Orders</button>
+                    </div>`;
+        if (marketSubTab === "products") {
+            html += `<div class="marketplace-grid">`;
+            products.forEach(p => {
+                html += `<div class="product-card">
+                            <img src="${p.image}" style="width:100%; border-radius:16px; height:130px; object-fit:cover;">
+                            <h4 style="margin:8px 0 4px">${p.name}</h4>
+                            <div class="product-price">Rs ${p.price}</div>
+                            <div style="font-size:12px;">${p.business}</div>
+                            <button class="order-product" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" style="margin-top:10px; width:100%;">Order Now</button>
+                        </div>`;
+            });
+            html += `</div>`;
+        } else {
+            if (orders.length === 0) html += `<p>No orders yet. Start shopping!</p>`;
+            orders.forEach(order => {
+                let statusClass = order.status === 'pending' ? 'status-pending' : (order.status === 'shipped' ? 'status-shipped' : 'status-delivered');
+                html += `<div class="order-card">
+                            <div><strong>Order #${order.id}</strong> <span class="order-status ${statusClass}">${order.status.toUpperCase()}</span></div>
+                            <div>${order.productName} x ${order.quantity}</div>
+                            <div>Total: Rs ${order.total}</div>
+                            <div style="font-size:12px;">${order.date}</div>
+                        </div>`;
+            });
+        }
+        return html;
+    }
+
+    function renderMeetup() {
+        let html = `<div class="top-tabs"><button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button><button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">👥 Find Friend</button></div>`;
+        if (meetupSubTab === "chats") {
+            chatList.forEach(chat => {
+                html += `<div class="post-card" style="display:flex; justify-content:space-between;"><div style="display:flex; gap:12px;"><div class="avatar">${chat.avatar}</div><div><strong>${chat.name}</strong><div style="font-size:13px;">${chat.lastMsg}</div></div></div><div>${chat.unread ? `<span style="background:#0f3b2c; padding:2px 8px; border-radius:20px;">${chat.unread}</span>` : chat.time}</div></div>`;
+            });
+        } else {
+            friendSuggestions.forEach(f => {
+                html += `<div class="post-card" style="display:flex; justify-content:space-between;"><div><div class="avatar">${f.avatar}</div><div><strong>${f.name}</strong><div>${f.mutualCircle}</div></div></div><button class="addFriend" data-name="${f.name}">Add Friend</button></div>`;
+            });
+        }
+        return html;
+    }
+function renderQuickGet() {
         let html = `<div class="top-tabs"><button class="top-tab-btn ${quickSubTab === 'location' ? 'active' : ''}" data-quick-tab="location">📍 Location Q</button><button class="top-tab-btn ${quickSubTab === 'circle' ? 'active' : ''}" data-quick-tab="circle">🏠 Circle Q</button><button class="top-tab-btn ${quickSubTab === 'ask' ? 'active' : ''}" data-quick-tab="ask">❓ Ask</button></div>`;
         if (quickSubTab === "location") {
             locationSpecificQuestions.forEach(q => {

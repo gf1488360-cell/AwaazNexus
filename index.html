@@ -395,50 +395,96 @@
 
     // RENDER FUNCTIONS
     function renderHome() {
-        let html = `<div class="top-tabs">
-                        <button class="top-tab-btn ${homeSubTab === 'posts' ? 'active' : ''}" data-home-tab="posts">📝 Add post</button>
-                        <button class="top-tab-btn ${homeSubTab === 'joincircle' ? 'active' : ''}" data-home-tab="joincircle">➕ Join circle</button>
-                        <button class="top-tab-btn ${homeSubTab === 'eventsmedia' ? 'active' : ''}" data-home-tab="eventsmedia">🎉 Events & Media</button>
-                    </div>`;
-        if (homeSubTab === "posts") {
-            html += `<button id="createTextPostBtn" style="margin-bottom:16px;"><i class="fas fa-edit"></i> Write text update</button>`;
-            let postsHtml = '';
-            textOnlyPosts.forEach(p => {
-                postsHtml += `<div class="post-card">
-                                <div class="post-header"><div class="avatar">${p.avatar}</div><div><div class="user-name">${p.userName}</div><div class="circle-badge">${p.circle}</div></div></div>
-                                <div class="post-text">${p.text}</div>
-                                <div class="post-stats"><span><i class="far fa-heart"></i> ${p.likes}</span><span><i class="far fa-comment"></i> ${p.comments}</span><span>${p.timestamp}</span></div>
-                                <div class="input-row"><input placeholder="Write a comment..."><button class="reply-post">Reply</button></div>
-                            </div>`;
+    let html = `<div class="top-tabs">
+                    <button class="top-tab-btn ${homeSubTab === 'posts' ? 'active' : ''}" data-home-tab="posts">📝 Add post</button>
+                    <button class="top-tab-btn ${homeSubTab === 'joincircle' ? 'active' : ''}" data-home-tab="joincircle">➕ Join circle</button>
+                    <button class="top-tab-btn ${homeSubTab === 'eventsmedia' ? 'active' : ''}" data-home-tab="eventsmedia">🎉 Events & Media</button>
+                </div>`;
+    if (homeSubTab === "posts") {
+        html += `<button id="createTextPostBtn" style="margin-bottom:16px;"><i class="fas fa-edit"></i> Write text update</button>`;
+        let postsHtml = '';
+        textOnlyPosts.forEach(p => {
+            postsHtml += `<div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar">${p.avatar}</div>
+                                <div>
+                                    <div class="user-name">${p.userName}</div>
+                                    <div class="circle-badge">${p.circle}</div>
+                                </div>
+                            </div>
+                            <div class="post-text">${p.text}</div>
+                            <div class="post-stats">
+                                <span><i class="far fa-heart"></i> ${p.likes}</span>
+                                <span><i class="far fa-comment"></i> ${p.comments}</span>
+                                <span>${p.timestamp}</span>
+                            </div>
+                            <div class="input-row">
+                                <input type="text" placeholder="Write a comment...">
+                                <button class="reply-post">Reply</button>
+                            </div>
+                        </div>`;
+        });
+        // ✅ Inject separate ad cards between posts
+        html += injectAdsBetweenPosts(postsHtml);
+    } 
+    else if (homeSubTab === "joincircle") {
+        html += `<div class="search-circle">
+                    <i class="fas fa-search"></i>
+                    <input id="circleSearch" placeholder="Search circle...">
+                </div>
+                <div id="circleList"></div>`;
+        setTimeout(() => {
+            const container = document.getElementById("circleList");
+            if (container) {
+                container.innerHTML = allCircles.map(c => `
+                    <div class="circle-item">
+                        <span><i class="fas fa-map-marker-alt"></i> ${c}</span>
+                        <button class="join-circle" data-circle="${c}">Join</button>
+                    </div>
+                `).join('');
+            }
+            document.querySelectorAll(".join-circle").forEach(btn => {
+                btn.onclick = () => alert(`Joined ${btn.dataset.circle}`);
             });
-            
-        } else if (homeSubTab === "joincircle") {
-            html += `<div class="search-circle"><i class="fas fa-search"></i><input id="circleSearch" placeholder="Search circle..."></div><div id="circleList"></div>`;
-            setTimeout(() => {
-                const container = document.getElementById("circleList");
-                if(container) container.innerHTML = allCircles.map(c => `<div class="circle-item"><span><i class="fas fa-map-marker-alt"></i> ${c}</span><button class="join-circle" data-circle="${c}">Join</button></div>`).join('');
-                document.querySelectorAll(".join-circle").forEach(btn => btn.onclick = () => alert(`Joined ${btn.dataset.circle}`));
-                document.getElementById("circleSearch")?.addEventListener("input", (e) => {
+            const searchInput = document.getElementById("circleSearch");
+            if (searchInput) {
+                searchInput.addEventListener("input", (e) => {
                     let term = e.target.value.toLowerCase();
                     let filtered = allCircles.filter(c => c.toLowerCase().includes(term));
-                    document.getElementById("circleList").innerHTML = filtered.map(c => `<div class="circle-item"><span>${c}</span><button class="join-circle" data-circle="${c}">Join</button></div>`).join('');
+                    document.getElementById("circleList").innerHTML = filtered.map(c => `
+                        <div class="circle-item">
+                            <span>${c}</span>
+                            <button class="join-circle" data-circle="${c}">Join</button>
+                        </div>
+                    `).join('');
                 });
-            }, 10);
-        } else {
-            let eventsHtml = '';
-            eventsMediaPosts.forEach(e => {
-                eventsHtml += `<div class="post-card">
-                                <div class="post-header"><div class="avatar">${e.avatar}</div><div><div class="user-name">${e.userName}</div><div class="circle-badge">${e.circle}</div></div></div>
-                                ${e.type === 'event' ? '<div class="event-badge">Event</div>' : ''}
-                                <div class="post-text">${e.text}</div><img src="${e.image}" class="post-img">
-                                <div class="post-stats"><span><i class="far fa-heart"></i> ${e.likes}</span><span>${e.timestamp}</span></div>
-                            </div>`;
-            });
-            html += eventsHtml;
-        }
-        return html;
+            }
+        }, 10);
+    } 
+    else { // eventsmedia
+        let eventsHtml = '';
+        eventsMediaPosts.forEach(e => {
+            eventsHtml += `<div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar">${e.avatar}</div>
+                                <div>
+                                    <div class="user-name">${e.userName}</div>
+                                    <div class="circle-badge">${e.circle}</div>
+                                </div>
+                            </div>
+                            ${e.type === 'event' ? '<div class="event-badge">Event</div>' : ''}
+                            <div class="post-text">${e.text}</div>
+                            <img src="${e.image}" class="post-img" alt="event media">
+                            <div class="post-stats">
+                                <span><i class="far fa-heart"></i> ${e.likes}</span>
+                                <span>${e.timestamp}</span>
+                            </div>
+                        </div>`;
+        });
+        html += eventsHtml;
     }
-
+    return html;
+}
     function renderMeetup() {
         let html = `<div class="top-tabs"><button class="top-tab-btn ${meetupSubTab === 'chats' ? 'active' : ''}" data-meetup-tab="chats">💬 Chats</button><button class="top-tab-btn ${meetupSubTab === 'friends' ? 'active' : ''}" data-meetup-tab="friends">👥 Find Friend</button></div>`;
         if (meetupSubTab === "chats") {

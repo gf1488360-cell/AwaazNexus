@@ -372,12 +372,7 @@
 
     // Helper to inject separate ad cards between posts
     function injectAdsBetweenPosts(contentHtml) {
-        let ad1 = `<div class="ad-card">
-                    <div class="ad-header"><i class="fas fa-ad"></i><span class="ad-label">Sponsored</span></div>
-                    <img src="${ads[0].image}" class="ad-image">
-                    <div class="ad-content"><strong>${ads[0].business}</strong><p>${ads[0].text}</p></div>
-                    <button class="ad-cta">${ads[0].cta}</button>
-                   </div>`;
+       
         let ad2 = `<div class="ad-card">
                     <div class="ad-header"><i class="fas fa-ad"></i><span class="ad-label">Sponsored</span></div>
                     <img src="${ads[1].image}" class="ad-image">
@@ -425,7 +420,7 @@
                         </div>`;
         });
         // ✅ Inject separate ad cards between posts
-     
+        html += injectAdsBetweenPosts(postsHtml);
     } 
     else if (homeSubTab === "joincircle") {
         html += `<div class="search-circle">
